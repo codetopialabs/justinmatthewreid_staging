@@ -16,6 +16,81 @@
 body{margin:0;}
 ::selection{background:#A85638;color:#F4EDE0;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
+.top-banner{background:#B94A3B;color:#F4EDE0;text-align:center;font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:12px;padding:10px 16px;}
+
+/* Hamburger on tablet + mobile; desktop nav at 1025px+ */
+@media(max-width:1024px){
+  .nav-desktop{display:none!important;}
+  .hamburger-btn{display:flex!important;}
+}
+@media(min-width:1025px){
+  .nav-mobile{display:none!important;}
+  .hamburger-btn{display:none!important;}
+}
+/* Drawer slides in whenever display flips from none to flex */
+.nav-mobile{animation:slideDown .22s ease both;}
+
+/* NOTE: Attribute selectors use Chrome CSSOM format (spaces after colons,
+   semicolon-space between props, leading zeros: .95fr -> 0.95fr) */
+
+/* Tablet (641-1024px) */
+@media(max-width:1024px){
+  /* Header nav row + top info-bar inner container */
+  header div[style*="padding: 18px 32px"]{padding-left:24px!important;padding-right:24px!important;}
+  header div[style*="padding: 8px 32px"]{padding-left:24px!important;padding-right:24px!important;}
+  .nav-mobile{padding-left:24px!important;padding-right:24px!important;}
+  section,footer{padding-left:24px!important;padding-right:24px!important;}
+
+  /* 3-col grids -> 2 col at tablet */
+  div[style*="grid-template-columns: repeat(3, 1fr)"]{grid-template-columns:1fr 1fr!important;}
+  /* Hero 2-col -> 1 col */
+  div[style*="grid-template-columns: 1.05fr 0.95fr"]{grid-template-columns:1fr!important;}
+  /* Ministry / About 2-col (gap:64px) -> 1 col */
+  div[style*="grid-template-columns: 1fr 1fr; gap: 64px"]{grid-template-columns:1fr!important;}
+  /* Contact 2-col (gap:72px) -> 1 col */
+  div[style*="grid-template-columns: 1fr 1fr; gap: 72px"]{grid-template-columns:1fr!important;}
+  /* Featured book panels -> 1 col */
+  div[style*="grid-template-columns: 0.8fr 1.2fr"]{grid-template-columns:1fr!important;}
+  div[style*="grid-template-columns: 0.85fr 1.15fr"]{grid-template-columns:1fr!important;}
+  /* Footer 4-col -> 2 col at tablet */
+  div[style*="grid-template-columns: 1.4fr 1fr 1fr 1.2fr"]{grid-template-columns:1fr 1fr!important;}
+  /* Milestones year column */
+  div[style*="grid-template-columns: 120px 1fr"]{grid-template-columns:80px 1fr!important;}
+
+  /* Inner padded panels (Chrome normalises padding:56px 56px -> padding:56px) */
+  div[style*="padding: 56px"]{padding:36px 28px!important;}
+  div[style*="padding: 48px"]{padding:28px!important;}
+  div[style*="padding: 44px"]{padding:28px!important;}
+  div[style*="min-height: 420px"]{min-height:240px!important;}
+
+  h1{font-size:clamp(2.4rem,4.5vw,3.8rem)!important;line-height:1.08!important;}
+  h2{font-size:clamp(1.9rem,3.5vw,2.8rem)!important;}
+  p{font-size:1rem!important;line-height:1.65!important;}
+}
+
+/* Mobile (<=640px) */
+@media(max-width:640px){
+  header div[style*="padding: 18px 32px"]{padding-left:16px!important;padding-right:16px!important;}
+  header div[style*="padding: 8px 32px"]{padding-left:16px!important;padding-right:16px!important;}
+  .nav-mobile{padding-left:16px!important;padding-right:16px!important;}
+  section,footer{padding-left:16px!important;padding-right:16px!important;}
+
+  /* 3-col -> 1 col on phones */
+  div[style*="grid-template-columns: repeat(3, 1fr)"]{grid-template-columns:1fr!important;}
+  /* Footer -> 1 col on phones */
+  div[style*="grid-template-columns: 1.4fr 1fr 1fr 1.2fr"]{grid-template-columns:1fr!important;}
+
+  div[style*="padding: 56px"]{padding:24px 16px!important;}
+  div[style*="padding: 48px"]{padding:20px 16px!important;}
+  div[style*="padding: 44px"]{padding:20px 16px!important;}
+  div[style*="min-height: 420px"]{min-height:180px!important;}
+
+  .top-banner{font-size:10px;letter-spacing:.12em;padding:8px 12px;}
+  h1{font-size:clamp(2rem,7vw,2.8rem)!important;}
+  h2{font-size:clamp(1.6rem,5.5vw,2.2rem)!important;}
+  p,button,input,textarea{font-size:0.95rem!important;line-height:1.6!important;}
+}
 </style>
 </helmet>
 
@@ -30,12 +105,14 @@ body{margin:0;}
       </div>
     </div>
   </sc-if>
-  <div style="max-width:1180px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+  <div style="max-width:1180px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
     <button onClick="{{ goHome }}" style="background:none;border:none;cursor:pointer;text-align:left;padding:0;">
       <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;letter-spacing:.01em;color:#2A2520;line-height:1;">Justin Matthew Reid</div>
       <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.26em;font-size:10.5px;color:#9A8A6E;margin-top:6px;">Minister &amp; Author</div>
     </button>
-    <nav style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+
+    <!-- Desktop nav -->
+    <nav class="nav-desktop" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
       <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
         <button onClick="{{ item.onClick }}" style="{{ item.style }}">{{ item.label }}</button>
       </sc-for>
@@ -43,6 +120,19 @@ body{margin:0;}
         <button onClick="{{ goContact }}" style="font-family:'EB Garamond',serif;font-size:15px;letter-spacing:.04em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:9px 22px;border-radius:2px;" style-hover="filter:brightness(1.08);">Give</button>
       </sc-if>
     </nav>
+
+    <!-- Hamburger button (mobile only) -->
+    <button class="hamburger-btn" onClick="{{ toggleMenu }}" style="display:none;background:none;border:none;cursor:pointer;padding:4px 8px;font-size:24px;line-height:1;color:#2A2520;" aria-label="Toggle menu">{{ menuIcon }}</button>
+  </div>
+
+  <!-- Mobile nav drawer — always rendered, shown/hidden via menuDisplayStyle (ternaries not supported by DCLogic resolver) -->
+  <div class="nav-mobile" style="display:{{ menuDisplayStyle }};border-top:1px solid #E0D6C2;background:rgba(244,237,224,.97);padding:12px 32px 20px;flex-direction:column;gap:0;">
+    <sc-for list="{{ navItems }}" as="mitem" hint-placeholder-count="6">
+      <button onClick="{{ mitem.onClick }}" style="font-family:'EB Garamond',serif;font-size:17px;letter-spacing:.04em;color:#2A2520;background:none;border:none;cursor:pointer;padding:12px 0;text-align:left;border-bottom:1px solid #EDE6D4;width:100%;">{{ mitem.label }}</button>
+    </sc-for>
+    <sc-if value="{{ showGive }}" hint-placeholder-val="{{ true }}">
+      <button onClick="{{ goContact }}" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.04em;color:#F4EDE0;background:#A85638;border:none;cursor:pointer;padding:12px 22px;border-radius:2px;margin-top:12px;width:100%;">Give</button>
+    </sc-if>
   </div>
 </header>
 
@@ -508,9 +598,9 @@ body{margin:0;}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Clay&quot;,&quot;Olive&quot;,&quot;Burgundy&quot;,&quot;Ochre&quot;],&quot;default&quot;:&quot;Burgundy&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showGive&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { page:'home', filter:'All', sent:false, subscribed:false, lightbox:-1 };
+  state = { page:'home', filter:'All', sent:false, subscribed:false, lightbox:-1, menuOpen:false };
 
-  go(p){ this.setState({page:p}); requestAnimationFrame(()=>{ try{window.scrollTo(0,0);}catch(e){} }); }
+  go(p){ this.setState({page:p, menuOpen:false}); requestAnimationFrame(()=>{ try{window.scrollTo(0,0);}catch(e){} }); }
 
   renderVals(){
     const accents = { Clay:'#A85638', Olive:'#4F5640', Burgundy:'#6B2D2A', Ochre:'#B0843C' };
@@ -588,6 +678,10 @@ class Component extends DCLogic {
       showTopBar: this.props.showTopBar!==false,
       showGive: this.props.showGive!==false,
       goHome:mk('home'), goAbout:mk('about'), goBlog:mk('blog'), goLinks:mk('links'), goBooks:mk('books'), goContact:mk('contact'),
+      menuOpen:this.state.menuOpen,
+      menuIcon: this.state.menuOpen ? '✕' : '☰',
+      menuDisplayStyle: this.state.menuOpen ? 'flex' : 'none',
+      toggleMenu:()=>this.setState({menuOpen:!this.state.menuOpen}),
       navItems, latestPosts, posts:filtered, chips, books:restBooks, pillars, milestones, gallery, links,
       sent:this.state.sent, notSent:!this.state.sent,
       subscribed:this.state.subscribed, notSubscribed:!this.state.subscribed,
