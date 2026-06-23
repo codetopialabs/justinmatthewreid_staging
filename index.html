@@ -1,602 +1,1064 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./support.js"></script>
 </head>
+
 <body>
-<x-dc>
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;}
-body{margin:0;}
-::selection{background:#A85638;color:#F4EDE0;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
-@keyframes slideDown{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
-.top-banner{background:#B94A3B;color:#F4EDE0;text-align:center;font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:12px;padding:10px 16px;}
+  <x-dc>
+    <helmet>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+      <style>
+        * {
+          box-sizing: border-box;
+        }
 
-/* Hamburger on tablet + mobile; desktop nav at 1025px+ */
-@media(max-width:1024px){
-  .nav-desktop{display:none!important;}
-  .hamburger-btn{display:flex!important;}
-}
-@media(min-width:1025px){
-  .nav-mobile{display:none!important;}
-  .hamburger-btn{display:none!important;}
-}
-/* Drawer slides in whenever display flips from none to flex */
-.nav-mobile{animation:slideDown .22s ease both;}
+        body {
+          margin: 0;
+        }
 
-/* NOTE: Attribute selectors use Chrome CSSOM format (spaces after colons,
+        ::selection {
+          background: #A85638;
+          color: #F4EDE0;
+        }
+
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(14px);
+          }
+
+          to {
+            opacity: 1;
+            transform: none;
+          }
+        }
+
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-8px);
+          }
+
+          to {
+            opacity: 1;
+            transform: none;
+          }
+        }
+
+        .top-banner {
+          background: #B94A3B;
+          color: #F4EDE0;
+          text-align: center;
+          font-family: 'EB Garamond', serif;
+          text-transform: uppercase;
+          letter-spacing: .18em;
+          font-size: 12px;
+          padding: 10px 16px;
+        }
+
+        /* Hamburger on tablet + mobile; desktop nav at 1025px+ */
+        @media(max-width:1024px) {
+          .nav-desktop {
+            display: none !important;
+          }
+
+          .hamburger-btn {
+            display: flex !important;
+          }
+        }
+
+        @media(min-width:1025px) {
+          .nav-mobile {
+            display: none !important;
+          }
+
+          .hamburger-btn {
+            display: none !important;
+          }
+        }
+
+        /* Drawer slides in whenever display flips from none to flex */
+        .nav-mobile {
+          animation: slideDown .22s ease both;
+        }
+
+        /* NOTE: Attribute selectors use Chrome CSSOM format (spaces after colons,
    semicolon-space between props, leading zeros: .95fr -> 0.95fr) */
 
-/* Tablet (641-1024px) */
-@media(max-width:1024px){
-  /* Header nav row + top info-bar inner container */
-  header div[style*="padding: 18px 32px"]{padding-left:24px!important;padding-right:24px!important;}
-  header div[style*="padding: 8px 32px"]{padding-left:24px!important;padding-right:24px!important;}
-  .nav-mobile{padding-left:24px!important;padding-right:24px!important;}
-  section,footer{padding-left:24px!important;padding-right:24px!important;}
+        /* Tablet (641-1024px) */
+        @media(max-width:1024px) {
 
-  /* 3-col grids -> 2 col at tablet */
-  div[style*="grid-template-columns: repeat(3, 1fr)"]{grid-template-columns:1fr 1fr!important;}
-  /* Hero 2-col -> 1 col */
-  div[style*="grid-template-columns: 1.05fr 0.95fr"]{grid-template-columns:1fr!important;}
-  /* Ministry / About 2-col (gap:64px) -> 1 col */
-  div[style*="grid-template-columns: 1fr 1fr; gap: 64px"]{grid-template-columns:1fr!important;}
-  /* Contact 2-col (gap:72px) -> 1 col */
-  div[style*="grid-template-columns: 1fr 1fr; gap: 72px"]{grid-template-columns:1fr!important;}
-  /* Featured book panels -> 1 col */
-  div[style*="grid-template-columns: 0.8fr 1.2fr"]{grid-template-columns:1fr!important;}
-  div[style*="grid-template-columns: 0.85fr 1.15fr"]{grid-template-columns:1fr!important;}
-  /* Footer 4-col -> 2 col at tablet */
-  div[style*="grid-template-columns: 1.4fr 1fr 1fr 1.2fr"]{grid-template-columns:1fr 1fr!important;}
-  /* Milestones year column */
-  div[style*="grid-template-columns: 120px 1fr"]{grid-template-columns:80px 1fr!important;}
+          /* Header nav row + top info-bar inner container */
+          header div[style*="padding: 18px 32px"] {
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+          }
 
-  /* Inner padded panels (Chrome normalises padding:56px 56px -> padding:56px) */
-  div[style*="padding: 56px"]{padding:36px 28px!important;}
-  div[style*="padding: 48px"]{padding:28px!important;}
-  div[style*="padding: 44px"]{padding:28px!important;}
-  div[style*="min-height: 420px"]{min-height:240px!important;}
+          header div[style*="padding: 8px 32px"] {
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+          }
 
-  h1{font-size:clamp(2.4rem,4.5vw,3.8rem)!important;line-height:1.08!important;}
-  h2{font-size:clamp(1.9rem,3.5vw,2.8rem)!important;}
-  p{font-size:1rem!important;line-height:1.65!important;}
-}
+          .nav-mobile {
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+          }
 
-/* Mobile (<=640px) */
-@media(max-width:640px){
-  header div[style*="padding: 18px 32px"]{padding-left:16px!important;padding-right:16px!important;}
-  header div[style*="padding: 8px 32px"]{padding-left:16px!important;padding-right:16px!important;}
-  .nav-mobile{padding-left:16px!important;padding-right:16px!important;}
-  section,footer{padding-left:16px!important;padding-right:16px!important;}
+          section,
+          footer {
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+          }
 
-  /* 3-col -> 1 col on phones */
-  div[style*="grid-template-columns: repeat(3, 1fr)"]{grid-template-columns:1fr!important;}
-  /* Footer -> 1 col on phones */
-  div[style*="grid-template-columns: 1.4fr 1fr 1fr 1.2fr"]{grid-template-columns:1fr!important;}
+          /* 3-col grids -> 2 col at tablet */
+          div[style*="grid-template-columns: repeat(3, 1fr)"] {
+            grid-template-columns: 1fr 1fr !important;
+          }
 
-  div[style*="padding: 56px"]{padding:24px 16px!important;}
-  div[style*="padding: 48px"]{padding:20px 16px!important;}
-  div[style*="padding: 44px"]{padding:20px 16px!important;}
-  div[style*="min-height: 420px"]{min-height:180px!important;}
+          /* Hero 2-col -> 1 col */
+          div[style*="grid-template-columns: 1.05fr 0.95fr"] {
+            grid-template-columns: 1fr !important;
+          }
 
-  .top-banner{font-size:10px;letter-spacing:.12em;padding:8px 12px;}
-  h1{font-size:clamp(2rem,7vw,2.8rem)!important;}
-  h2{font-size:clamp(1.6rem,5.5vw,2.2rem)!important;}
-  p,button,input,textarea{font-size:0.95rem!important;line-height:1.6!important;}
-}
-</style>
-</helmet>
+          /* Ministry / About 2-col (gap:64px) -> 1 col */
+          div[style*="grid-template-columns: 1fr 1fr; gap: 64px"] {
+            grid-template-columns: 1fr !important;
+          }
 
-<div style="background:#F4EDE0;min-height:100vh;font-family:'EB Garamond',serif;color:#2A2520;">
+          /* Contact 2-col (gap:72px) -> 1 col */
+          div[style*="grid-template-columns: 1fr 1fr; gap: 72px"] {
+            grid-template-columns: 1fr !important;
+          }
 
-<header style="position:sticky;top:0;z-index:50;background:rgba(244,237,224,.93);backdrop-filter:blur(8px);border-bottom:1px solid #E0D6C2;">
-  <sc-if value="{{ showTopBar }}" hint-placeholder-val="{{ true }}">
-    <div style="background:#25241E;color:#CFC4AE;font-size:12.5px;letter-spacing:.06em;">
-      <div style="max-width:1180px;margin:0 auto;padding:8px 32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-        <span>Living Word Fellowship · Accra, Ghana</span>
-        <span>sinnomore@runbox.com · 054 859 3837</span>
-      </div>
-    </div>
-  </sc-if>
-  <div style="max-width:1180px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
-    <button onClick="{{ goHome }}" style="background:none;border:none;cursor:pointer;text-align:left;padding:0;">
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;letter-spacing:.01em;color:#2A2520;line-height:1;">Justin Matthew Reid</div>
-      <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.26em;font-size:10.5px;color:#9A8A6E;margin-top:6px;">Minister &amp; Author</div>
-    </button>
+          /* Featured book panels -> 1 col */
+          div[style*="grid-template-columns: 0.8fr 1.2fr"] {
+            grid-template-columns: 1fr !important;
+          }
 
-    <!-- Desktop nav -->
-    <nav class="nav-desktop" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
-      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
-        <button onClick="{{ item.onClick }}" style="{{ item.style }}">{{ item.label }}</button>
-      </sc-for>
-      <sc-if value="{{ showGive }}" hint-placeholder-val="{{ true }}">
-        <button onClick="{{ goContact }}" style="font-family:'EB Garamond',serif;font-size:15px;letter-spacing:.04em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:9px 22px;border-radius:2px;" style-hover="filter:brightness(1.08);">Give</button>
-      </sc-if>
-    </nav>
+          div[style*="grid-template-columns: 0.85fr 1.15fr"] {
+            grid-template-columns: 1fr !important;
+          }
 
-    <!-- Hamburger button (mobile only) -->
-    <button class="hamburger-btn" onClick="{{ toggleMenu }}" style="display:none;background:none;border:none;cursor:pointer;padding:4px 8px;font-size:24px;line-height:1;color:#2A2520;" aria-label="Toggle menu">{{ menuIcon }}</button>
-  </div>
+          /* Footer 4-col -> 2 col at tablet */
+          div[style*="grid-template-columns: 1.4fr 1fr 1fr 1.2fr"] {
+            grid-template-columns: 1fr 1fr !important;
+          }
 
-  <!-- Mobile nav drawer — always rendered, shown/hidden via menuDisplayStyle (ternaries not supported by DCLogic resolver) -->
-  <div class="nav-mobile" style="display:{{ menuDisplayStyle }};border-top:1px solid #E0D6C2;background:rgba(244,237,224,.97);padding:12px 32px 20px;flex-direction:column;gap:0;">
-    <sc-for list="{{ navItems }}" as="mitem" hint-placeholder-count="6">
-      <button onClick="{{ mitem.onClick }}" style="font-family:'EB Garamond',serif;font-size:17px;letter-spacing:.04em;color:#2A2520;background:none;border:none;cursor:pointer;padding:12px 0;text-align:left;border-bottom:1px solid #EDE6D4;width:100%;">{{ mitem.label }}</button>
-    </sc-for>
-    <sc-if value="{{ showGive }}" hint-placeholder-val="{{ true }}">
-      <button onClick="{{ goContact }}" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.04em;color:#F4EDE0;background:#A85638;border:none;cursor:pointer;padding:12px 22px;border-radius:2px;margin-top:12px;width:100%;">Give</button>
-    </sc-if>
-  </div>
-</header>
+          /* Milestones year column */
+          div[style*="grid-template-columns: 120px 1fr"] {
+            grid-template-columns: 80px 1fr !important;
+          }
 
-<main>
+          /* Inner padded panels (Chrome normalises padding:56px 56px -> padding:56px) */
+          div[style*="padding: 56px"] {
+            padding: 36px 28px !important;
+          }
 
-<!-- ===================== HOME ===================== -->
-<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
-<div style="opacity:1;">
+          div[style*="padding: 48px"] {
+            padding: 28px !important;
+          }
 
-  <section style="padding:78px 32px 92px;">
-    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;">
-      <div>
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:26px;">Minister · Author · Servant of the Word</div>
-        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:66px;line-height:1.04;letter-spacing:-.01em;color:#2A2520;margin:0 0 26px;">Words written<br>to steady the soul.</h1>
-        <p style="font-size:19px;line-height:1.72;color:#5A5145;max-width:31em;margin:0 0 38px;">For three decades Justin Matthew Reid has shepherded a scattered church and set its hope to paper  books, reflections, and letters for pilgrims walking the long road home.</p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <button onClick="{{ goBlog }}" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:14px 30px;border-radius:2px;" style-hover="filter:brightness(1.08);">Read the Writings</button>
-          <button onClick="{{ goBooks }}" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#2A2520;background:none;border:1px solid #C3B49A;cursor:pointer;padding:14px 30px;border-radius:2px;" style-hover="border-color:#2A2520;">Explore the Books</button>
-        </div>
-      </div>
-      <div>
-        <div style="position:relative;width:100%;aspect-ratio:4/5;background:linear-gradient(140deg,#E8DAC0,#CBB088);border:1px solid rgba(120,95,60,.28);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 24px 60px -30px rgba(60,40,20,.55);">
-          <div style="position:absolute;inset:0;background:radial-gradient(120% 80% at 72% 18%,rgba(255,250,240,.55),transparent 58%);"></div>
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:rgba(74,56,36,.5);position:relative;">Author portrait</span>
-        </div>
-        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#8A7B62;margin-top:16px;text-align:center;">"A workman that needeth not to be ashamed."</div>
-      </div>
-    </div>
-  </section>
+          div[style*="padding: 44px"] {
+            padding: 28px !important;
+          }
 
-  <section style="background:#33342A;padding:74px 32px;">
-    <div style="max-width:880px;margin:0 auto;text-align:center;">
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:35px;line-height:1.42;color:#E7D6AE;margin:0;">"Thy word is a lamp unto my feet, and a light unto my path."</p>
-      <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.26em;font-size:12px;color:#9A9079;margin-top:26px;">Psalm 119:105</div>
-    </div>
-  </section>
+          div[style*="min-height: 420px"] {
+            min-height: 240px !important;
+          }
 
-  <section style="padding:92px 32px;">
-    <div style="max-width:1180px;margin:0 auto;">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px;flex-wrap:wrap;">
-        <div>
-          <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">From the desk</div>
-          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;color:#2A2520;margin:0;">Latest writings</h2>
-        </div>
-        <button onClick="{{ goBlog }}" style="font-family:'EB Garamond',serif;font-size:16px;color:{{ accent }};background:none;border:none;cursor:pointer;letter-spacing:.03em;padding:0;border-bottom:1px solid currentColor;">View all reflections →</button>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
-        <sc-for list="{{ latestPosts }}" as="post" hint-placeholder-count="3">
-          <button onClick="{{ goBlog }}" style="text-align:left;background:none;border:none;padding:0;cursor:pointer;display:flex;flex-direction:column;">
-            <div style="position:relative;width:100%;aspect-ratio:3/2;background:linear-gradient(135deg,#E4D6BD,#CDBA98);border:1px solid rgba(120,95,60,.22);overflow:hidden;display:flex;align-items:center;justify-content:center;">
-              <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(74,56,36,.45);">{{ post.cat }}</span>
+          h1 {
+            font-size: clamp(2.4rem, 4.5vw, 3.8rem) !important;
+            line-height: 1.08 !important;
+          }
+
+          h2 {
+            font-size: clamp(1.9rem, 3.5vw, 2.8rem) !important;
+          }
+
+          p {
+            font-size: 1rem !important;
+            line-height: 1.65 !important;
+          }
+        }
+
+        /* Mobile (<=640px) */
+        @media(max-width:640px) {
+          header div[style*="padding: 18px 32px"] {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+
+          header div[style*="padding: 8px 32px"] {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+
+          .nav-mobile {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+
+          section,
+          footer {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+
+          /* 3-col -> 1 col on phones */
+          div[style*="grid-template-columns: repeat(3, 1fr)"] {
+            grid-template-columns: 1fr !important;
+          }
+
+          /* Footer -> 1 col on phones */
+          div[style*="grid-template-columns: 1.4fr 1fr 1fr 1.2fr"] {
+            grid-template-columns: 1fr !important;
+          }
+
+          div[style*="padding: 56px"] {
+            padding: 24px 16px !important;
+          }
+
+          div[style*="padding: 48px"] {
+            padding: 20px 16px !important;
+          }
+
+          div[style*="padding: 44px"] {
+            padding: 20px 16px !important;
+          }
+
+          div[style*="min-height: 420px"] {
+            min-height: 180px !important;
+          }
+
+          .top-banner {
+            font-size: 10px;
+            letter-spacing: .12em;
+            padding: 8px 12px;
+          }
+
+          h1 {
+            font-size: clamp(2rem, 7vw, 2.8rem) !important;
+          }
+
+          h2 {
+            font-size: clamp(1.6rem, 5.5vw, 2.2rem) !important;
+          }
+
+          p,
+          button,
+          input,
+          textarea {
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+          }
+        }
+      </style>
+    </helmet>
+
+    <div style="background:#F4EDE0;min-height:100vh;font-family:'EB Garamond',serif;color:#2A2520;">
+
+      <header
+        style="position:sticky;top:0;z-index:50;background:rgba(244,237,224,.93);backdrop-filter:blur(8px);border-bottom:1px solid #E0D6C2;">
+        <sc-if value="{{ showTopBar }}" hint-placeholder-val="{{ true }}">
+          <div style="background:#25241E;color:#CFC4AE;font-size:12.5px;letter-spacing:.06em;">
+            <div
+              style="max-width:1180px;margin:0 auto;padding:8px 32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+              <span>Living Word Fellowship · Accra, Ghana</span>
+              <span>sinnomore@runbox.com · 054 859 3837</span>
             </div>
-            <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin:20px 0 10px;">{{ post.cat }} · {{ post.read }}</div>
-            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:#2A2520;margin:0 0 10px;line-height:1.14;">{{ post.title }}</h3>
-            <p style="font-size:16px;line-height:1.62;color:#5A5145;margin:0;">{{ post.excerpt }}</p>
-          </button>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding:0 32px 96px;">
-    <div style="max-width:1180px;margin:0 auto;background:#FBF7EF;border:1px solid #E0D6C2;display:grid;grid-template-columns:.8fr 1.2fr;">
-      <div style="position:relative;background:linear-gradient(150deg,#3B3C30,#262619);display:flex;align-items:center;justify-content:center;padding:48px;min-height:420px;">
-        <div style="width:62%;aspect-ratio:2/3;background:linear-gradient(160deg,#7C5A3C,#5A3F28);box-shadow:0 28px 50px -20px rgba(0,0,0,.6);display:flex;align-items:flex-end;padding:22px;">
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(244,237,224,.7);font-size:15px;">Book cover</span>
-        </div>
-      </div>
-      <div style="padding:56px 56px;">
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">New release · 2025</div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;color:#2A2520;margin:0 0 8px;line-height:1.05;">The Quiet Garden</h2>
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:#8A7B62;margin:0 0 24px;">Meditations on grace in the ordinary</p>
-        <p style="font-size:17px;line-height:1.74;color:#5A5145;margin:0 0 32px;max-width:34em;">Thirty short meditations for the weary believer  on rest, attention, and the slow work of God in unremarkable days. A companion for the morning watch.</p>
-        <div style="display:flex;gap:14px;flex-wrap:wrap;">
-          <button onClick="{{ goBooks }}" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:13px 28px;border-radius:2px;" style-hover="filter:brightness(1.08);">View the book</button>
-          <a href="https://www.amazon.com" target="_blank" rel="noopener" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#2A2520;background:none;border:1px solid #C3B49A;cursor:pointer;padding:13px 28px;border-radius:2px;text-decoration:none;" style-hover="border-color:#2A2520;">Buy on Amazon ↗</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#EDE3D1;padding:88px 32px;">
-    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
-      <div>
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">The ministry</div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;color:#2A2520;margin:0 0 20px;line-height:1.1;">A scattered church,<br>gathered by the Word.</h2>
-        <p style="font-size:18px;line-height:1.74;color:#5A5145;margin:0 0 28px;max-width:32em;">Living Word Fellowship serves missionaries, sponsors, and believers across four continents  teaching Scripture, sending workers, and bearing one another's burdens.</p>
-        <button onClick="{{ goAbout }}" style="font-family:'EB Garamond',serif;font-size:16px;color:{{ accent }};background:none;border:none;cursor:pointer;letter-spacing:.03em;padding:0;border-bottom:1px solid currentColor;">Read our vision →</button>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-        <div style="aspect-ratio:1;background:linear-gradient(135deg,#D9C8AC,#C2A57F);display:flex;align-items:center;justify-content:center;"><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(74,56,36,.45);">Ministry</span></div>
-        <div style="aspect-ratio:1;background:linear-gradient(135deg,#CFD3BC,#B2B894);display:flex;align-items:center;justify-content:center;"><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(60,66,40,.45);">Worship</span></div>
-        <div style="aspect-ratio:1;background:linear-gradient(135deg,#E0CDB4,#C9AF8B);display:flex;align-items:center;justify-content:center;"><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(74,56,36,.45);">Mission</span></div>
-        <div style="aspect-ratio:1;background:linear-gradient(135deg,#D7C6AB,#BE9E78);display:flex;align-items:center;justify-content:center;"><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(74,56,36,.45);">Service</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding:90px 32px;">
-    <div style="max-width:760px;margin:0 auto;text-align:center;">
-      <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:16px;">The letter</div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:40px;color:#2A2520;margin:0 0 16px;">Receive the monthly reflection</h2>
-      <p style="font-size:18px;line-height:1.7;color:#5A5145;margin:0 0 32px;">A single, unhurried letter each month  a meditation, a passage, and word from the field. No noise.</p>
-      <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
-        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:{{ accent }};">Thank you  grace and peace. Look for the first letter soon.</div>
-      </sc-if>
-      <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
-        <form onSubmit="{{ subscribe }}" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:520px;margin:0 auto;">
-          <input type="email" required placeholder="your@email.com" style="flex:1;min-width:240px;font-family:'EB Garamond',serif;font-size:16px;padding:14px 18px;background:#FBF7EF;border:1px solid #D8CCB6;border-radius:2px;color:#2A2520;" style-focus="outline:none;border-color:{{ accent }};"/>
-          <button type="submit" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:14px 28px;border-radius:2px;" style-hover="filter:brightness(1.08);">Subscribe</button>
-        </form>
-      </sc-if>
-    </div>
-  </section>
-
-</div>
-</sc-if>
-
-<!-- ===================== ABOUT ===================== -->
-<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-<div style="opacity:1;">
-
-  <section style="padding:78px 32px 84px;">
-    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
-      <div>
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:24px;">About the author</div>
-        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:58px;line-height:1.05;color:#2A2520;margin:0 0 24px;">A life given to<br>the Word.</h1>
-        <p style="font-size:18px;line-height:1.78;color:#5A5145;margin:0 0 20px;">Justin Matthew Reid was called to ministry in 1998 and has since served congregations and missionaries across West Africa and beyond. He is a teacher of Scripture, a pastor to the scattered, and the author of four books on prayer, perseverance, and the ordinary grace of God.</p>
-        <p style="font-size:18px;line-height:1.78;color:#5A5145;margin:0;">He and his wife make their home in Accra, where Living Word Fellowship continues its work of teaching, sending, and writing for the global church.</p>
-      </div>
-      <div>
-        <div style="position:relative;width:100%;aspect-ratio:4/5;background:linear-gradient(140deg,#E6D6BC,#C7AB82);border:1px solid rgba(120,95,60,.28);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 24px 60px -30px rgba(60,40,20,.55);">
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:rgba(74,56,36,.5);">Portrait</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#33342A;padding:78px 32px;">
-    <div style="max-width:920px;margin:0 auto;text-align:center;">
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:32px;line-height:1.46;color:#E7D6AE;margin:0;">"We are pilgrims and strangers here  and so we write the road down, that those behind us might walk it with less fear."</p>
-      <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.26em;font-size:12px;color:#9A9079;margin-top:26px;">Justin Matthew Reid</div>
-    </div>
-  </section>
-
-  <section style="padding:90px 32px;">
-    <div style="max-width:1180px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:56px;">
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">Our vision</div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;color:#2A2520;margin:0;">Three callings, one work</h2>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
-        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
-          <div style="text-align:center;padding:0 8px;">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:{{ accent }};margin-bottom:14px;">{{ p.roman }}</div>
-            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:#2A2520;margin:0 0 12px;">{{ p.title }}</h3>
-            <p style="font-size:16px;line-height:1.7;color:#5A5145;margin:0;">{{ p.body }}</p>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#EDE3D1;padding:88px 32px;">
-    <div style="max-width:820px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:50px;">
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">The journey</div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;color:#2A2520;margin:0;">Milestones of the ministry</h2>
-      </div>
-      <div>
-        <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="5">
-          <div style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid #DCCFB8;align-items:baseline;">
-            <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;color:{{ accent }};">{{ m.year }}</div>
-            <div>
-              <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;color:#2A2520;margin:0 0 5px;">{{ m.title }}</h3>
-              <p style="font-size:16px;line-height:1.65;color:#5A5145;margin:0;">{{ m.body }}</p>
-            </div>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding:90px 32px;">
-    <div style="max-width:1180px;margin:0 auto;">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap;">
-        <div>
-          <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">From the field</div>
-          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;color:#2A2520;margin:0;">Ministry gallery</h2>
-        </div>
-        <span style="font-family:'EB Garamond',serif;font-size:15px;color:#8A7B62;font-style:italic;">Select an image to view</span>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
-        <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="6">
-          <button onClick="{{ g.onClick }}" style="border:none;padding:0;cursor:pointer;position:relative;aspect-ratio:4/3;background:{{ g.bg }};overflow:hidden;display:flex;align-items:center;justify-content:center;" style-hover="filter:brightness(1.05);">
-            <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(74,56,36,.45);">{{ g.label }}</span>
-          </button>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-</div>
-</sc-if>
-
-<!-- ===================== BLOG ===================== -->
-<sc-if value="{{ isBlog }}" hint-placeholder-val="{{ false }}">
-<div style="opacity:1;">
-
-  <section style="padding:78px 32px 40px;text-align:center;">
-    <div style="max-width:760px;margin:0 auto;">
-      <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">Essays · Reflections · Sermons</div>
-      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:60px;line-height:1.04;color:#2A2520;margin:0 0 20px;">Writings &amp; Reflections</h1>
-      <p style="font-size:18px;line-height:1.7;color:#5A5145;margin:0;">A directory of essays, sermon notes, and short reflections  gathered for the journey home.</p>
-    </div>
-  </section>
-
-  <section style="padding:24px 32px 0;">
-    <div style="max-width:1180px;margin:0 auto;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <sc-for list="{{ chips }}" as="c" hint-placeholder-count="5">
-        <button onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
-      </sc-for>
-    </div>
-  </section>
-
-  <section style="padding:56px 32px 96px;">
-    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:44px 40px;">
-      <sc-for list="{{ posts }}" as="post" hint-placeholder-count="6">
-        <div style="display:flex;flex-direction:column;">
-          <div style="position:relative;width:100%;aspect-ratio:3/2;background:{{ post.bg }};border:1px solid rgba(120,95,60,.2);overflow:hidden;display:flex;align-items:center;justify-content:center;">
-            <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(74,56,36,.45);">{{ post.cat }}</span>
-          </div>
-          <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin:20px 0 10px;">{{ post.cat }} · {{ post.date }}</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:#2A2520;margin:0 0 10px;line-height:1.14;">{{ post.title }}</h3>
-          <p style="font-size:16px;line-height:1.64;color:#5A5145;margin:0 0 16px;">{{ post.excerpt }}</p>
-          <span style="font-family:'EB Garamond',serif;font-size:15px;color:{{ accent }};letter-spacing:.03em;margin-top:auto;">Read · {{ post.read }} →</span>
-        </div>
-      </sc-for>
-    </div>
-  </section>
-
-</div>
-</sc-if>
-
-<!-- ===================== LINKS ===================== -->
-<sc-if value="{{ isLinks }}" hint-placeholder-val="{{ false }}">
-<div style="opacity:1;">
-
-  <section style="padding:78px 32px 48px;text-align:center;">
-    <div style="max-width:680px;margin:0 auto;">
-      <div style="width:84px;height:84px;border-radius:50%;margin:0 auto 24px;background:linear-gradient(140deg,#E6D6BC,#C7AB82);border:1px solid rgba(120,95,60,.28);display:flex;align-items:center;justify-content:center;">
-        <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(74,56,36,.5);">JMR</span>
-      </div>
-      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;color:#2A2520;margin:0 0 8px;">Justin Matthew Reid</h1>
-      <p style="font-size:17px;line-height:1.6;color:#5A5145;margin:0;">Everything in one place  sermons, books, the newsletter, and ways to walk with the ministry.</p>
-    </div>
-  </section>
-
-  <section style="padding:8px 32px 96px;">
-    <div style="max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:14px;">
-      <sc-for list="{{ links }}" as="lk" hint-placeholder-count="8">
-        <a href="{{ lk.href }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:20px;padding:20px 24px;background:#FBF7EF;border:1px solid #E0D6C2;border-radius:3px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;" style-hover="border-color:{{ accent }};transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(60,40,20,.5);">
-          <span style="flex:none;width:46px;height:46px;border-radius:50%;background:{{ lk.bg }};display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:{{ accent }};">{{ lk.glyph }}</span>
-          <span style="flex:1;">
-            <span style="display:block;font-family:'Cormorant Garamond',serif;font-size:22px;color:#2A2520;line-height:1.15;">{{ lk.title }}</span>
-            <span style="display:block;font-size:14px;color:#7A7060;margin-top:3px;">{{ lk.desc }}</span>
-          </span>
-          <span style="flex:none;font-family:'EB Garamond',serif;font-size:18px;color:#B6A788;">↗</span>
-        </a>
-      </sc-for>
-    </div>
-  </section>
-
-</div>
-</sc-if>
-
-<!-- ===================== BOOKS ===================== -->
-<sc-if value="{{ isBooks }}" hint-placeholder-val="{{ false }}">
-<div style="opacity:1;">
-
-  <section style="padding:78px 32px 36px;text-align:center;">
-    <div style="max-width:720px;margin:0 auto;">
-      <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">Published works</div>
-      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:60px;line-height:1.04;color:#2A2520;margin:0 0 18px;">The Books</h1>
-      <p style="font-size:18px;line-height:1.7;color:#5A5145;margin:0;">Four volumes written for the weary and the wayfaring. Each available wherever good books are sold.</p>
-    </div>
-  </section>
-
-  <!-- Featured / single-book landing template -->
-  <section style="padding:48px 32px 80px;">
-    <div style="max-width:1180px;margin:0 auto;background:#FBF7EF;border:1px solid #E0D6C2;display:grid;grid-template-columns:.85fr 1.15fr;">
-      <div style="position:relative;background:linear-gradient(150deg,#3B3C30,#262619);display:flex;align-items:center;justify-content:center;padding:56px;">
-        <div style="width:66%;aspect-ratio:2/3;background:linear-gradient(160deg,#7C5A3C,#54391F);box-shadow:0 32px 56px -22px rgba(0,0,0,.65);display:flex;flex-direction:column;justify-content:space-between;padding:24px;">
-          <span style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.22em;font-size:10px;color:rgba(244,237,224,.7);">Justin Matthew Reid</span>
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:rgba(244,237,224,.92);line-height:1.2;">The Quiet Garden</span>
-        </div>
-      </div>
-      <div style="padding:56px;">
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:16px;">Featured release · 2025</div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:46px;color:#2A2520;margin:0 0 8px;line-height:1.04;">The Quiet Garden</h2>
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#8A7B62;margin:0 0 26px;">Meditations on grace in the ordinary</p>
-        <p style="font-size:17px;line-height:1.76;color:#5A5145;margin:0 0 22px;max-width:36em;">In thirty short meditations, Justin Matthew Reid turns the reader's gaze to the unhurried places where God most often works  the morning watch, the shared table, the patient seed. A book to be read slowly, a page at a time.</p>
-        <div style="border-left:3px solid {{ accent }};padding:6px 0 6px 20px;margin:0 0 30px;">
-          <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#3A332A;margin:0;line-height:1.5;">"A rare, steadying book  it teaches the soul to breathe again."</p>
-          <span style="font-family:'EB Garamond',serif;font-size:14px;color:#8A7B62;letter-spacing:.04em;"> A fellow pilgrim</span>
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="https://www.amazon.com" target="_blank" rel="noopener" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:13px 26px;border-radius:2px;text-decoration:none;" style-hover="filter:brightness(1.08);">Buy on Amazon ↗</a>
-          <a href="https://books.apple.com" target="_blank" rel="noopener" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#2A2520;background:none;border:1px solid #C3B49A;cursor:pointer;padding:13px 26px;border-radius:2px;text-decoration:none;" style-hover="border-color:#2A2520;">Apple Books ↗</a>
-          <a href="#" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#2A2520;background:none;border:1px solid #C3B49A;cursor:pointer;padding:13px 26px;border-radius:2px;text-decoration:none;" style-hover="border-color:#2A2520;">Buy locally (GHS)</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#EDE3D1;padding:84px 32px;">
-    <div style="max-width:1180px;margin:0 auto;">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;color:#2A2520;margin:0 0 44px;text-align:center;">More from the author</h2>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;">
-        <sc-for list="{{ books }}" as="b" hint-placeholder-count="3">
-          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;">
-            <div style="width:64%;aspect-ratio:2/3;background:{{ b.bg }};box-shadow:0 22px 40px -22px rgba(60,40,20,.6);display:flex;flex-direction:column;justify-content:space-between;padding:18px;margin-bottom:24px;">
-              <span style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:rgba(244,237,224,.65);">Justin Matthew Reid</span>
-              <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:rgba(244,237,224,.92);line-height:1.2;">{{ b.title }}</span>
-            </div>
-            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;color:#2A2520;margin:0 0 4px;">{{ b.title }}</h3>
-            <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#8A7B62;margin:0 0 8px;">{{ b.sub }}</p>
-            <span style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#9A8A6E;margin-bottom:16px;">{{ b.year }}</span>
-            <a href="https://www.amazon.com" target="_blank" rel="noopener" style="font-family:'EB Garamond',serif;font-size:15px;color:{{ accent }};text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;">Buy the book ↗</a>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-</div>
-</sc-if>
-
-<!-- ===================== CONTACT ===================== -->
-<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
-<div style="opacity:1;">
-
-  <section style="padding:78px 32px 92px;">
-    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;">
-      <div>
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">Get in touch</div>
-        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:54px;line-height:1.04;color:#2A2520;margin:0 0 22px;">Write to us</h1>
-        <p style="font-size:18px;line-height:1.76;color:#5A5145;margin:0 0 40px;max-width:30em;">For prayer, speaking invitations, partnership, or a word of encouragement  we read every message and reply as the Lord allows.</p>
-
-        <div style="display:flex;flex-direction:column;gap:24px;">
-          <div>
-            <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin-bottom:6px;">Email</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#2A2520;">sinnomore@runbox.com</div>
-          </div>
-          <div>
-            <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin-bottom:6px;">Telephone</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#2A2520;">054 859 3837</div>
-          </div>
-          <div>
-            <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin-bottom:6px;">Visit</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#2A2520;line-height:1.35;">12 Cedar Avenue, East Legon<br>Accra, Ghana</div>
-          </div>
-        </div>
-
-        <div style="margin-top:40px;padding:24px 26px;background:#EDE3D1;border:1px solid #DCCFB8;border-radius:3px;">
-          <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:#2A2520;margin-bottom:6px;">Support the ministry</div>
-          <p style="font-size:15px;line-height:1.6;color:#5A5145;margin:0 0 14px;">Your giving sends workers, prints books, and sustains the field.</p>
-          <a href="#" style="font-family:'EB Garamond',serif;font-size:15px;color:#F4EDE0;background:{{ accent }};padding:10px 22px;border-radius:2px;text-decoration:none;display:inline-block;" style-hover="filter:brightness(1.08);">Give a gift</a>
-        </div>
-      </div>
-
-      <div style="background:#FBF7EF;border:1px solid #E0D6C2;padding:44px;">
-        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-          <div style="text-align:center;padding:60px 12px;">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:{{ accent }};margin-bottom:12px;">Thank you.</div>
-            <p style="font-size:17px;line-height:1.7;color:#5A5145;margin:0;">Your message has been received. Grace and peace to you  we'll be in touch soon.</p>
           </div>
         </sc-if>
-        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-          <form onSubmit="{{ submitContact }}" style="display:flex;flex-direction:column;gap:22px;">
-            <div>
-              <label style="display:block;font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#8A7B62;margin-bottom:8px;">Full name</label>
-              <input required type="text" style="width:100%;font-family:'EB Garamond',serif;font-size:16px;padding:13px 16px;background:#F4EDE0;border:1px solid #D8CCB6;border-radius:2px;color:#2A2520;" style-focus="outline:none;border-color:{{ accent }};"/>
-            </div>
-            <div>
-              <label style="display:block;font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#8A7B62;margin-bottom:8px;">Email</label>
-              <input required type="email" style="width:100%;font-family:'EB Garamond',serif;font-size:16px;padding:13px 16px;background:#F4EDE0;border:1px solid #D8CCB6;border-radius:2px;color:#2A2520;" style-focus="outline:none;border-color:{{ accent }};"/>
-            </div>
-            <div>
-              <label style="display:block;font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#8A7B62;margin-bottom:8px;">Subject</label>
-              <input type="text" style="width:100%;font-family:'EB Garamond',serif;font-size:16px;padding:13px 16px;background:#F4EDE0;border:1px solid #D8CCB6;border-radius:2px;color:#2A2520;" style-focus="outline:none;border-color:{{ accent }};"/>
-            </div>
-            <div>
-              <label style="display:block;font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#8A7B62;margin-bottom:8px;">Message</label>
-              <textarea required rows="5" style="width:100%;font-family:'EB Garamond',serif;font-size:16px;padding:13px 16px;background:#F4EDE0;border:1px solid #D8CCB6;border-radius:2px;color:#2A2520;resize:vertical;" style-focus="outline:none;border-color:{{ accent }};"></textarea>
-            </div>
-            <button type="submit" style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:15px 30px;border-radius:2px;align-self:flex-start;" style-hover="filter:brightness(1.08);">Send message</button>
-          </form>
+        <div
+          style="max-width:1180px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+          <button onClick="{{ goHome }}" style="background:none;border:none;cursor:pointer;text-align:left;padding:0;">
+            <div
+              style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;letter-spacing:.01em;color:#2A2520;line-height:1;">
+              Justin Matthew Reid</div>
+            <div
+              style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.26em;font-size:10.5px;color:#9A8A6E;margin-top:6px;">
+              Minister &amp; Author</div>
+          </button>
+
+          <!-- Desktop nav -->
+          <nav class="nav-desktop" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+            <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+              <button onClick="{{ item.onClick }}" style="{{ item.style }}">{{ item.label }}</button>
+            </sc-for>
+            <sc-if value="{{ showGive }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ goContact }}"
+                style="font-family:'EB Garamond',serif;font-size:15px;letter-spacing:.04em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:9px 22px;border-radius:2px;"
+                style-hover="filter:brightness(1.08);">Give</button>
+            </sc-if>
+          </nav>
+
+          <!-- Hamburger button (mobile only) -->
+          <button class="hamburger-btn" onClick="{{ toggleMenu }}"
+            style="display:none;background:none;border:none;cursor:pointer;padding:4px 8px;font-size:24px;line-height:1;color:#2A2520;"
+            aria-label="Toggle menu">{{ menuIcon }}</button>
+        </div>
+
+        <!-- Mobile nav drawer — always rendered, shown/hidden via menuDisplayStyle (ternaries not supported by DCLogic resolver) -->
+        <div class="nav-mobile"
+          style="display:{{ menuDisplayStyle }};border-top:1px solid #E0D6C2;background:rgba(244,237,224,.97);padding:12px 32px 20px;flex-direction:column;gap:0;">
+          <sc-for list="{{ navItems }}" as="mitem" hint-placeholder-count="6">
+            <button onClick="{{ mitem.onClick }}"
+              style="font-family:'EB Garamond',serif;font-size:17px;letter-spacing:.04em;color:#2A2520;background:none;border:none;cursor:pointer;padding:12px 0;text-align:left;border-bottom:1px solid #EDE6D4;width:100%;">{{
+              mitem.label }}</button>
+          </sc-for>
+          <sc-if value="{{ showGive }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ goContact }}"
+              style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.04em;color:#F4EDE0;background:#A85638;border:none;cursor:pointer;padding:12px 22px;border-radius:2px;margin-top:12px;width:100%;">Give</button>
+          </sc-if>
+        </div>
+      </header>
+
+      <main>
+
+        <!-- ===================== HOME ===================== -->
+        <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+          <div style="opacity:1;">
+
+            <section style="padding:78px 32px 92px;">
+              <div
+                style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;">
+                <div>
+                  <div
+                    style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:26px;">
+                    Minister · Author · Servant of the Word</div>
+                  <h1
+                    style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:66px;line-height:1.04;letter-spacing:-.01em;color:#2A2520;margin:0 0 26px;">
+                    Words written<br>to steady the soul.</h1>
+                  <p style="font-size:19px;line-height:1.72;color:#5A5145;max-width:31em;margin:0 0 38px;">For three
+                    decades Justin Matthew Reid has shepherded a scattered church and set its hope to paper books,
+                    reflections, and letters for pilgrims walking the long road home.</p>
+                  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                    <button onClick="{{ goBlog }}"
+                      style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:14px 30px;border-radius:2px;"
+                      style-hover="filter:brightness(1.08);">Read the Writings</button>
+                    <button onClick="{{ goBooks }}"
+                      style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#2A2520;background:none;border:1px solid #C3B49A;cursor:pointer;padding:14px 30px;border-radius:2px;"
+                      style-hover="border-color:#2A2520;">Explore the Books</button>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    style="position:relative;width:100%;aspect-ratio:4/5;background:linear-gradient(140deg,#E8DAC0,#CBB088);border:1px solid rgba(120,95,60,.28);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 24px 60px -30px rgba(60,40,20,.55);">
+                    <div
+                      style="position:absolute;inset:0;background:radial-gradient(120% 80% at 72% 18%,rgba(255,250,240,.55),transparent 58%);">
+                    </div>
+                    <span
+                      style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:rgba(74,56,36,.5);position:relative;">Author
+                      portrait</span>
+                  </div>
+                  <div
+                    style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#8A7B62;margin-top:16px;text-align:center;">
+                    "A workman that needeth not to be ashamed."</div>
+                </div>
+              </div>
+            </section>
+
+            <section style="background:#33342A;padding:74px 32px;">
+              <div style="max-width:880px;margin:0 auto;text-align:center;">
+                <p
+                  style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:35px;line-height:1.42;color:#E7D6AE;margin:0;">
+                  "Thy word is a lamp unto my feet, and a light unto my path."</p>
+                <div
+                  style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.26em;font-size:12px;color:#9A9079;margin-top:26px;">
+                  Psalm 119:105</div>
+              </div>
+            </section>
+
+            <section style="padding:92px 32px;">
+              <div style="max-width:1180px;margin:0 auto;">
+                <div
+                  style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px;flex-wrap:wrap;">
+                  <div>
+                    <div
+                      style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
+                      From the desk</div>
+                    <h2
+                      style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;color:#2A2520;margin:0;">
+                      Latest writings</h2>
+                  </div>
+                  <button onClick="{{ goBlog }}"
+                    style="font-family:'EB Garamond',serif;font-size:16px;color:{{ accent }};background:none;border:none;cursor:pointer;letter-spacing:.03em;padding:0;border-bottom:1px solid currentColor;">View
+                    all reflections →</button>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
+                  <sc-for list="{{ latestPosts }}" as="post" hint-placeholder-count="3">
+                    <button onClick="{{ goBlog }}"
+                      style="text-align:left;background:none;border:none;padding:0;cursor:pointer;display:flex;flex-direction:column;">
+                      <div
+                        style="position:relative;width:100%;aspect-ratio:3/2;background:linear-gradient(135deg,#E4D6BD,#CDBA98);border:1px solid rgba(120,95,60,.22);overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                        <span
+                          style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(74,56,36,.45);">{{
+                          post.cat }}</span>
+                      </div>
+                      <div
+                        style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin:20px 0 10px;">
+                        {{ post.cat }} · {{ post.read }}</div>
+                      <h3
+                        style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:#2A2520;margin:0 0 10px;line-height:1.14;">
+                        {{ post.title }}</h3>
+                      <p style="font-size:16px;line-height:1.62;color:#5A5145;margin:0;">{{ post.excerpt }}</p>
+                    </button>
+                  </sc-for>
+                </div>
+              </div>
+            </section>
+
+            <section style="padding:0 32px 96px;">
+              <div
+                style="max-width:1180px;margin:0 auto;background:#FBF7EF;border:1px solid #E0D6C2;display:grid;grid-template-columns:.8fr 1.2fr;">
+                <div
+                  style="position:relative;background:linear-gradient(150deg,#3B3C30,#262619);display:flex;align-items:center;justify-content:center;padding:48px;min-height:420px;">
+                  <div
+                    style="width:62%;aspect-ratio:2/3;background:linear-gradient(160deg,#7C5A3C,#5A3F28);box-shadow:0 28px 50px -20px rgba(0,0,0,.6);display:flex;align-items:flex-end;padding:22px;">
+                    <span
+                      style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(244,237,224,.7);font-size:15px;">Book
+                      cover</span>
+                  </div>
+                </div>
+                <div style="padding:56px 56px;">
+                  <div
+                    style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
+                    New release · 2025</div>
+                  <h2
+                    style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;color:#2A2520;margin:0 0 8px;line-height:1.05;">
+                    The Quiet Garden</h2>
+                  <p
+                    style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:#8A7B62;margin:0 0 24px;">
+                    Meditations on grace in the ordinary</p>
+                  <p style="font-size:17px;line-height:1.74;color:#5A5145;margin:0 0 32px;max-width:34em;">Thirty short
+                    meditations for the weary believer on rest, attention, and the slow work of God in unremarkable
+                    days. A companion for the morning watch.</p>
+                  <div style="display:flex;gap:14px;flex-wrap:wrap;">
+                    <button onClick="{{ goBooks }}"
+                      style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:13px 28px;border-radius:2px;"
+                      style-hover="filter:brightness(1.08);">View the book</button>
+                    <a href="https://www.amazon.com" target="_blank" rel="noopener"
+                      style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#2A2520;background:none;border:1px solid #C3B49A;cursor:pointer;padding:13px 28px;border-radius:2px;text-decoration:none;"
+                      style-hover="border-color:#2A2520;">Buy on Amazon ↗</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section style="background:#EDE3D1;padding:88px 32px;">
+              <div
+                style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+                <div>
+                  <div
+                    style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
+                    The ministry</div>
+                  <h2
+                    style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;color:#2A2520;margin:0 0 20px;line-height:1.1;">
+                    A scattered church,<br>gathered by the Word.</h2>
+                  <p style="font-size:18px;line-height:1.74;color:#5A5145;margin:0 0 28px;max-width:32em;">Living Word
+                    Fellowship serves missionaries, sponsors, and believers across four continents teaching Scripture,
+                    sending workers, and bearing one another's burdens.</p>
+                  <button onClick="{{ goAbout }}"
+                    style="font-family:'EB Garamond',serif;font-size:16px;color:{{ accent }};background:none;border:none;cursor:pointer;letter-spacing:.03em;padding:0;border-bottom:1px solid currentColor;">Read
+                    our vision →</button>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                  <div
+                    style="aspect-ratio:1;background:linear-gradient(135deg,#D9C8AC,#C2A57F);display:flex;align-items:center;justify-content:center;">
+                    <span
+                      style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(74,56,36,.45);">Ministry</span>
+                  </div>
+                  <div
+                    style="aspect-ratio:1;background:linear-gradient(135deg,#CFD3BC,#B2B894);display:flex;align-items:center;justify-content:center;">
+                    <span
+                      style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(60,66,40,.45);">Worship</span>
+                  </div>
+                  <div
+                    style="aspect-ratio:1;background:linear-gradient(135deg,#E0CDB4,#C9AF8B);display:flex;align-items:center;justify-content:center;">
+                    <span
+                      style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(74,56,36,.45);">Mission</span>
+                  </div>
+                  <div
+                    style="aspect-ratio:1;background:linear-gradient(135deg,#D7C6AB,#BE9E78);display:flex;align-items:center;justify-content:center;">
+                    <span
+                      style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(74,56,36,.45);">Service</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section style="padding:90px 32px;">
+              <div style="max-width:760px;margin:0 auto;text-align:center;">
+                <div
+                  style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:16px;">
+                  The letter</div>
+                <h2
+                  style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:40px;color:#2A2520;margin:0 0 16px;">
+                  Receive the monthly reflection</h2>
+                <p style="font-size:18px;line-height:1.7;color:#5A5145;margin:0 0 32px;">A single, unhurried letter each
+                  month a meditation, a passage, and word from the field. No noise.</p>
+                <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+                  <div
+                    style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:{{ accent }};">
+                    Thank you grace and peace. Look for the first letter soon.</div>
+                </sc-if>
+                <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+                  <form onSubmit="{{ subscribe }}"
+                    style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:520px;margin:0 auto;">
+                    <input type="email" required placeholder="your@email.com"
+                      style="flex:1;min-width:240px;font-family:'EB Garamond',serif;font-size:16px;padding:14px 18px;background:#FBF7EF;border:1px solid #D8CCB6;border-radius:2px;color:#2A2520;"
+                      style-focus="outline:none;border-color:{{ accent }};" />
+                    <button type="submit"
+                      style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:14px 28px;border-radius:2px;"
+                      style-hover="filter:brightness(1.08);">Subscribe</button>
+                  </form>
+                </sc-if>
+              </div>
+            </section>
+
+          </div>
         </sc-if>
-      </div>
-    </div>
-  </section>
 
-</div>
-</sc-if>
+        <!-- ===================== ABOUT ===================== -->
+        <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+          <div style="opacity:1;">
 
-</main>
+            <section style="padding:78px 32px 84px;">
+              <div
+                style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+                <div>
+                  <div
+                    style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:24px;">
+                    About the author</div>
+                  <h1
+                    style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:58px;line-height:1.05;color:#2A2520;margin:0 0 24px;">
+                    A life given to<br>the Word.</h1>
+                  <p style="font-size:18px;line-height:1.78;color:#5A5145;margin:0 0 20px;">Justin Matthew Reid was
+                    called to ministry in 1998 and has since served congregations and missionaries across West Africa
+                    and beyond. He is a teacher of Scripture, a pastor to the scattered, and the author of four books on
+                    prayer, perseverance, and the ordinary grace of God.</p>
+                  <p style="font-size:18px;line-height:1.78;color:#5A5145;margin:0;">He and his wife make their home in
+                    Accra, where Living Word Fellowship continues its work of teaching, sending, and writing for the
+                    global church.</p>
+                </div>
+                <div>
+                  <div
+                    style="position:relative;width:100%;aspect-ratio:4/5;background:linear-gradient(140deg,#E6D6BC,#C7AB82);border:1px solid rgba(120,95,60,.28);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 24px 60px -30px rgba(60,40,20,.55);">
+                    <span
+                      style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:rgba(74,56,36,.5);">Portrait</span>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-<!-- ===================== FOOTER ===================== -->
-<footer style="background:#25241E;color:#CFC4AE;padding:72px 32px 40px;">
-  <div style="max-width:1180px;margin:0 auto;">
-    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid #3D3B30;">
-      <div>
-        <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:#F4EDE0;">Justin Matthew Reid</div>
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.26em;font-size:10.5px;color:#9A9079;margin-top:8px;margin-bottom:18px;">Minister &amp; Author</div>
-        <p style="font-size:15px;line-height:1.7;color:#A89E89;margin:0;max-width:24em;">Living Word Fellowship  teaching Scripture, sending workers, and writing for the global church.</p>
-      </div>
-      <div>
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#8C8270;margin-bottom:16px;">Explore</div>
-        <div style="display:flex;flex-direction:column;gap:11px;">
-          <button onClick="{{ goAbout }}" style="text-align:left;background:none;border:none;color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;cursor:pointer;padding:0;" style-hover="color:#F4EDE0;">About</button>
-          <button onClick="{{ goBlog }}" style="text-align:left;background:none;border:none;color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;cursor:pointer;padding:0;" style-hover="color:#F4EDE0;">Writings</button>
-          <button onClick="{{ goBooks }}" style="text-align:left;background:none;border:none;color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;cursor:pointer;padding:0;" style-hover="color:#F4EDE0;">Books</button>
-          <button onClick="{{ goLinks }}" style="text-align:left;background:none;border:none;color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;cursor:pointer;padding:0;" style-hover="color:#F4EDE0;">Links</button>
+            <section style="background:#33342A;padding:78px 32px;">
+              <div style="max-width:920px;margin:0 auto;text-align:center;">
+                <p
+                  style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:32px;line-height:1.46;color:#E7D6AE;margin:0;">
+                  "We are pilgrims and strangers here and so we write the road down, that those behind us might walk it
+                  with less fear."</p>
+                <div
+                  style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.26em;font-size:12px;color:#9A9079;margin-top:26px;">
+                  Justin Matthew Reid</div>
+              </div>
+            </section>
+
+            <section style="padding:90px 32px;">
+              <div style="max-width:1180px;margin:0 auto;">
+                <div style="text-align:center;margin-bottom:56px;">
+                  <div
+                    style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
+                    Our vision</div>
+                  <h2
+                    style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;color:#2A2520;margin:0;">
+                    Three callings, one work</h2>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
+                  <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
+                    <div style="text-align:center;padding:0 8px;">
+                      <div
+                        style="font-family:'Cormorant Garamond',serif;font-size:30px;color:{{ accent }};margin-bottom:14px;">
+                        {{ p.roman }}</div>
+                      <h3
+                        style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:#2A2520;margin:0 0 12px;">
+                        {{ p.title }}</h3>
+                      <p style="font-size:16px;line-height:1.7;color:#5A5145;margin:0;">{{ p.body }}</p>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </section>
+
+            <section style="background:#EDE3D1;padding:88px 32px;">
+              <div style="max-width:820px;margin:0 auto;">
+                <div style="text-align:center;margin-bottom:50px;">
+                  <div
+                    style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
+                    The journey</div>
+                  <h2
+                    style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;color:#2A2520;margin:0;">
+                    Milestones of the ministry</h2>
+                </div>
+                <div>
+                  <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="5">
+                    <div
+                      style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid #DCCFB8;align-items:baseline;">
+                      <div
+                        style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;color:{{ accent }};">
+                        {{ m.year }}</div>
+                      <div>
+                        <h3
+                          style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;color:#2A2520;margin:0 0 5px;">
+                          {{ m.title }}</h3>
+                        <p style="font-size:16px;line-height:1.65;color:#5A5145;margin:0;">{{ m.body }}</p>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </section>
+
+            <section style="padding:90px 32px;">
+              <div style="max-width:1180px;margin:0 auto;">
+                <div
+                  style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap;">
+                  <div>
+                    <div
+                      style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
+                      From the field</div>
+                    <h2
+                      style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;color:#2A2520;margin:0;">
+                      Ministry gallery</h2>
+                  </div>
+                  <span style="font-family:'EB Garamond',serif;font-size:15px;color:#8A7B62;font-style:italic;">Select
+                    an image to view</span>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+                  <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="6">
+                    <button onClick="{{ g.onClick }}"
+                      style="border:none;padding:0;cursor:pointer;position:relative;aspect-ratio:4/3;background:{{ g.bg }};overflow:hidden;display:flex;align-items:center;justify-content:center;"
+                      style-hover="filter:brightness(1.05);">
+                      <span
+                        style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(74,56,36,.45);">{{
+                        g.label }}</span>
+                    </button>
+                  </sc-for>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </sc-if>
+
+        <!-- ===================== BLOG ===================== -->
+        <sc-if value="{{ isBlog }}" hint-placeholder-val="{{ false }}">
+          <div style="opacity:1;">
+
+            <section style="padding:78px 32px 40px;text-align:center;">
+              <div style="max-width:760px;margin:0 auto;">
+                <div
+                  style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
+                  Essays · Reflections · Sermons</div>
+                <h1
+                  style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:60px;line-height:1.04;color:#2A2520;margin:0 0 20px;">
+                  Writings &amp; Reflections</h1>
+                <p style="font-size:18px;line-height:1.7;color:#5A5145;margin:0;">A directory of essays, sermon notes,
+                  and short reflections gathered for the journey home.</p>
+              </div>
+            </section>
+
+            <section style="padding:24px 32px 0;">
+              <div style="max-width:1180px;margin:0 auto;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <sc-for list="{{ chips }}" as="c" hint-placeholder-count="5">
+                  <button onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+                </sc-for>
+              </div>
+            </section>
+
+            <section style="padding:56px 32px 96px;">
+              <div
+                style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:44px 40px;">
+                <sc-for list="{{ posts }}" as="post" hint-placeholder-count="6">
+                  <div style="display:flex;flex-direction:column;">
+                    <div
+                      style="position:relative;width:100%;aspect-ratio:3/2;background:{{ post.bg }};border:1px solid rgba(120,95,60,.2);overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                      <span
+                        style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(74,56,36,.45);">{{
+                        post.cat }}</span>
+                    </div>
+                    <div
+                      style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin:20px 0 10px;">
+                      {{ post.cat }} · {{ post.date }}</div>
+                    <h3
+                      style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:#2A2520;margin:0 0 10px;line-height:1.14;">
+                      {{ post.title }}</h3>
+                    <p style="font-size:16px;line-height:1.64;color:#5A5145;margin:0 0 16px;">{{ post.excerpt }}</p>
+                    <span
+                      style="font-family:'EB Garamond',serif;font-size:15px;color:{{ accent }};letter-spacing:.03em;margin-top:auto;">Read
+                      · {{ post.read }} →</span>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+
+          </div>
+        </sc-if>
+
+        <!-- ===================== LINKS ===================== -->
+        <sc-if value="{{ isLinks }}" hint-placeholder-val="{{ false }}">
+          <div style="opacity:1;">
+
+            <section style="padding:78px 32px 48px;text-align:center;">
+              <div style="max-width:680px;margin:0 auto;">
+                <div
+                  style="width:84px;height:84px;border-radius:50%;margin:0 auto 24px;background:linear-gradient(140deg,#E6D6BC,#C7AB82);border:1px solid rgba(120,95,60,.28);display:flex;align-items:center;justify-content:center;">
+                  <span
+                    style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(74,56,36,.5);">JMR</span>
+                </div>
+                <h1
+                  style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;color:#2A2520;margin:0 0 8px;">
+                  Justin Matthew Reid</h1>
+                <p style="font-size:17px;line-height:1.6;color:#5A5145;margin:0;">Everything in one place sermons,
+                  books, the newsletter, and ways to walk with the ministry.</p>
+              </div>
+            </section>
+
+            <section style="padding:8px 32px 96px;">
+              <div style="max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:14px;">
+                <sc-for list="{{ links }}" as="lk" hint-placeholder-count="8">
+                  <a href="{{ lk.href }}" target="_blank" rel="noopener"
+                    style="display:flex;align-items:center;gap:20px;padding:20px 24px;background:#FBF7EF;border:1px solid #E0D6C2;border-radius:3px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;"
+                    style-hover="border-color:{{ accent }};transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(60,40,20,.5);">
+                    <span
+                      style="flex:none;width:46px;height:46px;border-radius:50%;background:{{ lk.bg }};display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:{{ accent }};">{{
+                      lk.glyph }}</span>
+                    <span style="flex:1;">
+                      <span
+                        style="display:block;font-family:'Cormorant Garamond',serif;font-size:22px;color:#2A2520;line-height:1.15;">{{
+                        lk.title }}</span>
+                      <span style="display:block;font-size:14px;color:#7A7060;margin-top:3px;">{{ lk.desc }}</span>
+                    </span>
+                    <span style="flex:none;font-family:'EB Garamond',serif;font-size:18px;color:#B6A788;">↗</span>
+                  </a>
+                </sc-for>
+              </div>
+            </section>
+
+          </div>
+        </sc-if>
+
+        <!-- ===================== BOOKS ===================== -->
+        <sc-if value="{{ isBooks }}" hint-placeholder-val="{{ false }}">
+          <div style="opacity:1;">
+
+            <section style="padding:78px 32px 36px;text-align:center;">
+              <div style="max-width:720px;margin:0 auto;">
+                <div
+                  style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
+                  Published works</div>
+                <h1
+                  style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:60px;line-height:1.04;color:#2A2520;margin:0 0 18px;">
+                  The Books</h1>
+                <p style="font-size:18px;line-height:1.7;color:#5A5145;margin:0;">Four volumes written for the weary and
+                  the wayfaring. Each available wherever good books are sold.</p>
+              </div>
+            </section>
+
+            <!-- Featured / single-book landing template -->
+            <section style="padding:48px 32px 80px;">
+              <div
+                style="max-width:1180px;margin:0 auto;background:#FBF7EF;border:1px solid #E0D6C2;display:grid;grid-template-columns:.85fr 1.15fr;">
+                <div
+                  style="position:relative;background:linear-gradient(150deg,#3B3C30,#262619);display:flex;align-items:center;justify-content:center;padding:56px;">
+                  <div
+                    style="width:66%;aspect-ratio:2/3;background:linear-gradient(160deg,#7C5A3C,#54391F);box-shadow:0 32px 56px -22px rgba(0,0,0,.65);display:flex;flex-direction:column;justify-content:space-between;padding:24px;">
+                    <span
+                      style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.22em;font-size:10px;color:rgba(244,237,224,.7);">Justin
+                      Matthew Reid</span>
+                    <span
+                      style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:rgba(244,237,224,.92);line-height:1.2;">The
+                      Quiet Garden</span>
+                  </div>
+                </div>
+                <div style="padding:56px;">
+                  <div
+                    style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:16px;">
+                    Featured release · 2025</div>
+                  <h2
+                    style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:46px;color:#2A2520;margin:0 0 8px;line-height:1.04;">
+                    The Quiet Garden</h2>
+                  <p
+                    style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#8A7B62;margin:0 0 26px;">
+                    Meditations on grace in the ordinary</p>
+                  <p style="font-size:17px;line-height:1.76;color:#5A5145;margin:0 0 22px;max-width:36em;">In thirty
+                    short meditations, Justin Matthew Reid turns the reader's gaze to the unhurried places where God
+                    most often works the morning watch, the shared table, the patient seed. A book to be read slowly, a
+                    page at a time.</p>
+                  <div style="border-left:3px solid {{ accent }};padding:6px 0 6px 20px;margin:0 0 30px;">
+                    <p
+                      style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#3A332A;margin:0;line-height:1.5;">
+                      "A rare, steadying book it teaches the soul to breathe again."</p>
+                    <span style="font-family:'EB Garamond',serif;font-size:14px;color:#8A7B62;letter-spacing:.04em;"> A
+                      fellow pilgrim</span>
+                  </div>
+                  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <a href="https://www.amazon.com" target="_blank" rel="noopener"
+                      style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:13px 26px;border-radius:2px;text-decoration:none;"
+                      style-hover="filter:brightness(1.08);">Buy on Amazon ↗</a>
+                    <a href="https://books.apple.com" target="_blank" rel="noopener"
+                      style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#2A2520;background:none;border:1px solid #C3B49A;cursor:pointer;padding:13px 26px;border-radius:2px;text-decoration:none;"
+                      style-hover="border-color:#2A2520;">Apple Books ↗</a>
+                    <a href="#"
+                      style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#2A2520;background:none;border:1px solid #C3B49A;cursor:pointer;padding:13px 26px;border-radius:2px;text-decoration:none;"
+                      style-hover="border-color:#2A2520;">Buy locally (GHS)</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section style="background:#EDE3D1;padding:84px 32px;">
+              <div style="max-width:1180px;margin:0 auto;">
+                <h2
+                  style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;color:#2A2520;margin:0 0 44px;text-align:center;">
+                  More from the author</h2>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;">
+                  <sc-for list="{{ books }}" as="b" hint-placeholder-count="3">
+                    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+                      <div
+                        style="width:64%;aspect-ratio:2/3;background:{{ b.bg }};box-shadow:0 22px 40px -22px rgba(60,40,20,.6);display:flex;flex-direction:column;justify-content:space-between;padding:18px;margin-bottom:24px;">
+                        <span
+                          style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:rgba(244,237,224,.65);">Justin
+                          Matthew Reid</span>
+                        <span
+                          style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:rgba(244,237,224,.92);line-height:1.2;">{{
+                          b.title }}</span>
+                      </div>
+                      <h3
+                        style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;color:#2A2520;margin:0 0 4px;">
+                        {{ b.title }}</h3>
+                      <p
+                        style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#8A7B62;margin:0 0 8px;">
+                        {{ b.sub }}</p>
+                      <span
+                        style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#9A8A6E;margin-bottom:16px;">{{
+                        b.year }}</span>
+                      <a href="https://www.amazon.com" target="_blank" rel="noopener"
+                        style="font-family:'EB Garamond',serif;font-size:15px;color:{{ accent }};text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;">Buy
+                        the book ↗</a>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </sc-if>
+
+        <!-- ===================== CONTACT ===================== -->
+        <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+          <div style="opacity:1;">
+
+            <section style="padding:78px 32px 92px;">
+              <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;">
+                <div>
+                  <div
+                    style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
+                    Get in touch</div>
+                  <h1
+                    style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:54px;line-height:1.04;color:#2A2520;margin:0 0 22px;">
+                    Write to us</h1>
+                  <p style="font-size:18px;line-height:1.76;color:#5A5145;margin:0 0 40px;max-width:30em;">For prayer,
+                    speaking invitations, partnership, or a word of encouragement we read every message and reply as the
+                    Lord allows.</p>
+
+                  <div style="display:flex;flex-direction:column;gap:24px;">
+                    <div>
+                      <div
+                        style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin-bottom:6px;">
+                        Email</div>
+                      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#2A2520;">
+                        sinnomore@runbox.com</div>
+                    </div>
+                    <div>
+                      <div
+                        style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin-bottom:6px;">
+                        Telephone</div>
+                      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#2A2520;">054 859 3837
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin-bottom:6px;">
+                        Visit</div>
+                      <div
+                        style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#2A2520;line-height:1.35;">12
+                        Cedar Avenue, East Legon<br>Accra, Ghana</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="margin-top:40px;padding:24px 26px;background:#EDE3D1;border:1px solid #DCCFB8;border-radius:3px;">
+                    <div
+                      style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:#2A2520;margin-bottom:6px;">
+                      Support the ministry</div>
+                    <p style="font-size:15px;line-height:1.6;color:#5A5145;margin:0 0 14px;">Your giving sends workers,
+                      prints books, and sustains the field.</p>
+                    <a href="#"
+                      style="font-family:'EB Garamond',serif;font-size:15px;color:#F4EDE0;background:{{ accent }};padding:10px 22px;border-radius:2px;text-decoration:none;display:inline-block;"
+                      style-hover="filter:brightness(1.08);">Give a gift</a>
+                  </div>
+                </div>
+
+                <div style="background:#FBF7EF;border:1px solid #E0D6C2;padding:44px;">
+                  <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+                    <div style="text-align:center;padding:60px 12px;">
+                      <div
+                        style="font-family:'Cormorant Garamond',serif;font-size:30px;color:{{ accent }};margin-bottom:12px;">
+                        Thank you.</div>
+                      <p style="font-size:17px;line-height:1.7;color:#5A5145;margin:0;">Your message has been received.
+                        Grace and peace to you we'll be in touch soon.</p>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+                    <form onSubmit="{{ submitContact }}" style="display:flex;flex-direction:column;gap:22px;">
+                      <div>
+                        <label
+                          style="display:block;font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#8A7B62;margin-bottom:8px;">Full
+                          name</label>
+                        <input required type="text"
+                          style="width:100%;font-family:'EB Garamond',serif;font-size:16px;padding:13px 16px;background:#F4EDE0;border:1px solid #D8CCB6;border-radius:2px;color:#2A2520;"
+                          style-focus="outline:none;border-color:{{ accent }};" />
+                      </div>
+                      <div>
+                        <label
+                          style="display:block;font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#8A7B62;margin-bottom:8px;">Email</label>
+                        <input required type="email"
+                          style="width:100%;font-family:'EB Garamond',serif;font-size:16px;padding:13px 16px;background:#F4EDE0;border:1px solid #D8CCB6;border-radius:2px;color:#2A2520;"
+                          style-focus="outline:none;border-color:{{ accent }};" />
+                      </div>
+                      <div>
+                        <label
+                          style="display:block;font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#8A7B62;margin-bottom:8px;">Subject</label>
+                        <input type="text"
+                          style="width:100%;font-family:'EB Garamond',serif;font-size:16px;padding:13px 16px;background:#F4EDE0;border:1px solid #D8CCB6;border-radius:2px;color:#2A2520;"
+                          style-focus="outline:none;border-color:{{ accent }};" />
+                      </div>
+                      <div>
+                        <label
+                          style="display:block;font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#8A7B62;margin-bottom:8px;">Message</label>
+                        <textarea required rows="5"
+                          style="width:100%;font-family:'EB Garamond',serif;font-size:16px;padding:13px 16px;background:#F4EDE0;border:1px solid #D8CCB6;border-radius:2px;color:#2A2520;resize:vertical;"
+                          style-focus="outline:none;border-color:{{ accent }};"></textarea>
+                      </div>
+                      <button type="submit"
+                        style="font-family:'EB Garamond',serif;font-size:16px;letter-spacing:.03em;color:#F4EDE0;background:{{ accent }};border:none;cursor:pointer;padding:15px 30px;border-radius:2px;align-self:flex-start;"
+                        style-hover="filter:brightness(1.08);">Send message</button>
+                    </form>
+                  </sc-if>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </sc-if>
+
+      </main>
+
+      <!-- ===================== FOOTER ===================== -->
+      <footer style="background:#25241E;color:#CFC4AE;padding:72px 32px 40px;">
+        <div style="max-width:1180px;margin:0 auto;">
+          <div
+            style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid #3D3B30;">
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:#F4EDE0;">Justin
+                Matthew Reid</div>
+              <div
+                style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.26em;font-size:10.5px;color:#9A9079;margin-top:8px;margin-bottom:18px;">
+                Minister &amp; Author</div>
+              <p style="font-size:15px;line-height:1.7;color:#A89E89;margin:0;max-width:24em;">Living Word Fellowship
+                teaching Scripture, sending workers, and writing for the global church.</p>
+            </div>
+            <div>
+              <div
+                style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#8C8270;margin-bottom:16px;">
+                Explore</div>
+              <div style="display:flex;flex-direction:column;gap:11px;">
+                <button onClick="{{ goAbout }}"
+                  style="text-align:left;background:none;border:none;color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;cursor:pointer;padding:0;"
+                  style-hover="color:#F4EDE0;">About</button>
+                <button onClick="{{ goBlog }}"
+                  style="text-align:left;background:none;border:none;color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;cursor:pointer;padding:0;"
+                  style-hover="color:#F4EDE0;">Writings</button>
+                <button onClick="{{ goBooks }}"
+                  style="text-align:left;background:none;border:none;color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;cursor:pointer;padding:0;"
+                  style-hover="color:#F4EDE0;">Books</button>
+                <button onClick="{{ goLinks }}"
+                  style="text-align:left;background:none;border:none;color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;cursor:pointer;padding:0;"
+                  style-hover="color:#F4EDE0;">Links</button>
+              </div>
+            </div>
+            <div>
+              <div
+                style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#8C8270;margin-bottom:16px;">
+                Connect</div>
+              <div style="display:flex;flex-direction:column;gap:11px;">
+                <button onClick="{{ goContact }}"
+                  style="text-align:left;background:none;border:none;color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;cursor:pointer;padding:0;"
+                  style-hover="color:#F4EDE0;">Contact</button>
+                <a href="#" style="color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;text-decoration:none;"
+                  style-hover="color:#F4EDE0;">Give</a>
+              </div>
+            </div>
+            <div>
+              <div
+                style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#8C8270;margin-bottom:16px;">
+                The monthly letter</div>
+              <p style="font-size:15px;line-height:1.6;color:#A89E89;margin:0 0 14px;">One unhurried reflection each
+                month.</p>
+              <button onClick="{{ goHome }}"
+                style="font-family:'EB Garamond',serif;font-size:15px;color:#25241E;background:#D9C9A6;border:none;cursor:pointer;padding:10px 20px;border-radius:2px;"
+                style-hover="filter:brightness(1.05);">Subscribe</button>
+            </div>
+          </div>
+          <div
+            style="padding-top:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#7E7563;letter-spacing:.03em;">
+            <span>© 2026 Living Word Fellowship. Placeholder identity names &amp; photos to be replaced.</span>
+            <span>Built on Ghost · Designed by Codetopia</span>
+          </div>
         </div>
-      </div>
-      <div>
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#8C8270;margin-bottom:16px;">Connect</div>
-        <div style="display:flex;flex-direction:column;gap:11px;">
-          <button onClick="{{ goContact }}" style="text-align:left;background:none;border:none;color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;cursor:pointer;padding:0;" style-hover="color:#F4EDE0;">Contact</button>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener" style="color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;text-decoration:none;" style-hover="color:#F4EDE0;">Instagram</a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener" style="color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;text-decoration:none;" style-hover="color:#F4EDE0;">LinkedIn</a>
-          <a href="#" style="color:#CFC4AE;font-family:'EB Garamond',serif;font-size:16px;text-decoration:none;" style-hover="color:#F4EDE0;">Give</a>
+      </footer>
+
+      <!-- ===================== LIGHTBOX ===================== -->
+      <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeLightbox }}"
+          style="position:fixed;inset:0;z-index:100;background:rgba(20,18,14,.92);display:flex;align-items:center;justify-content:center;padding:40px;animation:fadeUp .3s ease both;">
+          <button onClick="{{ closeLightbox }}"
+            style="position:absolute;top:28px;right:34px;background:none;border:none;color:#E7D6AE;font-family:'EB Garamond',serif;font-size:30px;cursor:pointer;line-height:1;">×</button>
+          <div style="text-align:center;">
+            <div
+              style="width:min(880px,86vw);aspect-ratio:3/2;background:{{ lightboxBg }};border:1px solid rgba(180,150,110,.3);display:flex;align-items:center;justify-content:center;box-shadow:0 40px 90px -40px rgba(0,0,0,.8);">
+              <span
+                style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:rgba(74,56,36,.55);">{{
+                lightboxLabel }}</span>
+            </div>
+            <div
+              style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#C9BC9E;margin-top:18px;">
+              From the ministry field · placeholder image</div>
+          </div>
         </div>
-      </div>
-      <div>
-        <div style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#8C8270;margin-bottom:16px;">The monthly letter</div>
-        <p style="font-size:15px;line-height:1.6;color:#A89E89;margin:0 0 14px;">One unhurried reflection each month.</p>
-        <button onClick="{{ goHome }}" style="font-family:'EB Garamond',serif;font-size:15px;color:#25241E;background:#D9C9A6;border:none;cursor:pointer;padding:10px 20px;border-radius:2px;" style-hover="filter:brightness(1.05);">Subscribe</button>
-      </div>
-    </div>
-    <div style="padding-top:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#7E7563;letter-spacing:.03em;">
-      <span>© 2026 Living Word Fellowship. Placeholder identity  names &amp; photos to be replaced.</span>
-      <span>Built on Ghost · Designed by Codetopia</span>
-    </div>
-  </div>
-</footer>
+      </sc-if>
 
-<!-- ===================== LIGHTBOX ===================== -->
-<sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
-  <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:100;background:rgba(20,18,14,.92);display:flex;align-items:center;justify-content:center;padding:40px;animation:fadeUp .3s ease both;">
-    <button onClick="{{ closeLightbox }}" style="position:absolute;top:28px;right:34px;background:none;border:none;color:#E7D6AE;font-family:'EB Garamond',serif;font-size:30px;cursor:pointer;line-height:1;">×</button>
-    <div style="text-align:center;">
-      <div style="width:min(880px,86vw);aspect-ratio:3/2;background:{{ lightboxBg }};border:1px solid rgba(180,150,110,.3);display:flex;align-items:center;justify-content:center;box-shadow:0 40px 90px -40px rgba(0,0,0,.8);">
-        <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:rgba(74,56,36,.55);">{{ lightboxLabel }}</span>
-      </div>
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#C9BC9E;margin-top:18px;">From the ministry field · placeholder image</div>
     </div>
-  </div>
-</sc-if>
-
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Clay&quot;,&quot;Olive&quot;,&quot;Burgundy&quot;,&quot;Ochre&quot;],&quot;default&quot;:&quot;Burgundy&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showGive&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+  </x-dc>
+  <script type="text/x-dc" data-dc-script
+    data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Clay&quot;,&quot;Olive&quot;,&quot;Burgundy&quot;,&quot;Ochre&quot;],&quot;default&quot;:&quot;Burgundy&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showGive&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   state = { page:'home', filter:'All', sent:false, subscribed:false, lightbox:-1, menuOpen:false };
 
@@ -668,7 +1130,6 @@ class Component extends DCLogic {
       {title:'Give to the Ministry', desc:'Support workers, books, and the field', glyph:'\u2665', href:'#', bg:'rgba(168,86,56,.12)'},
       {title:'Subscribe to the Letter', desc:'One unhurried reflection each month', glyph:'\u2709', href:'#', bg:'rgba(168,86,56,.12)'},
       {title:'Request Prayer', desc:'Share a need; we pray over every request', glyph:'\u271D', href:'#', bg:'rgba(168,86,56,.12)'},
-      {title:'Follow on Instagram', desc:'Moments from the ministry and the field', glyph:'\u25C9', href:'https://www.instagram.com', bg:'rgba(168,86,56,.12)'},
     ];
 
     const lb=this.state.lightbox;
@@ -696,4 +1157,5 @@ class Component extends DCLogic {
 }
 </script>
 </body>
+
 </html>
