@@ -340,7 +340,7 @@
             aria-label="Toggle menu">{{ menuIcon }}</button>
         </div>
 
-        <!-- Mobile nav drawer — always rendered, shown/hidden via menuDisplayStyle (ternaries not supported by DCLogic resolver) -->
+        <!-- Mobile nav drawer - always rendered, shown/hidden via menuDisplayStyle (ternaries not supported by DCLogic resolver) -->
         <div class="nav-mobile"
           style="display:{{ menuDisplayStyle }};border-top:1px solid #E5E5E5;background:rgba(250,250,250,.98);padding:12px 32px 20px;flex-direction:column;gap:0;">
           <sc-for list="{{ navItems }}" as="mitem" hint-placeholder-count="6">
@@ -372,7 +372,7 @@
                     style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:66px;line-height:1.04;letter-spacing:-.01em;color:#111111;margin:0 0 26px;">
                     Words written<br>to steady the soul.</h1>
                   <p style="font-size:19px;line-height:1.72;color:#555555;max-width:31em;margin:0 0 38px;">For three
-                    decades Justin Matthew Reid has taught Scripture and set its hope to paper — books,
+                    decades Justin Matthew Reid has taught Scripture and set its hope to paper: books,
                     reflections, and letters for pilgrims walking the long road home.</p>
                   <div style="display:flex;gap:16px;flex-wrap:wrap;">
                     <button onClick="{{ goBlog }}"
@@ -776,11 +776,11 @@
                     style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;color:#111111;margin:0 0 10px;">
                     Receive the monthly reflection</h3>
                   <p style="font-family:'EB Garamond',serif;font-size:16px;line-height:1.7;color:#555555;margin:0 0 20px;">One unhurried letter each
-                    month — a meditation, a passage, and a word of encouragement. No noise.</p>
+                    month: a meditation, a passage, and a word of encouragement. No noise.</p>
                   <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
                     <div
                       style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:{{ accent }};">
-                      Thank you — grace and peace. Look for the first letter soon.</div>
+                      Thank you. Grace and peace. Look for the first letter soon.</div>
                   </sc-if>
                   <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
                     <form onSubmit="{{ subscribe }}" style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -1134,30 +1134,30 @@ class Component extends DCLogic {
 
     const allPostsRaw=[
       {cat:'Reflections', date:'June 12, 2026', read:'5 min', title:'On the Morning Watch', excerpt:'Before the world stirs, the soul learns again to listen in the quiet hour.',
-       body:['There is a particular quality of silence in the hour before the world wakes. The birds have not yet begun, the roads are still, and something in the air itself seems to pause — as if creation, too, is holding its breath before the day begins.',
-             'It was in just such a morning that the psalmist wrote, "My voice shalt thou hear in the morning, O LORD; in the morning will I direct my prayer unto thee, and will look up." There is something deliberate in that phrase — to look up. Not merely to pray, but to orient the soul upward before the weight of the day presses it earthward.',
-             'We live in an age of noise. The moment our eyes open, the world rushes in — notifications, obligations, the accumulated weight of everything undone. The morning watch is a discipline of resistance. It is the practice of giving the first and finest hour to God before anyone else can claim it.',
+       body:['There is a particular quality of silence in the hour before the world wakes. The birds have not yet begun, the roads are still, and something in the air itself seems to pause, as if creation, too, is holding its breath before the day begins.',
+             'It was in just such a morning that the psalmist wrote, "My voice shalt thou hear in the morning, O LORD; in the morning will I direct my prayer unto thee, and will look up." There is something deliberate in that phrase: to look up. Not merely to pray, but to orient the soul upward before the weight of the day presses it earthward.',
+             'We live in an age of noise. The moment our eyes open, the world rushes in: notifications, obligations, the accumulated weight of everything undone. The morning watch is a discipline of resistance. It is the practice of giving the first and finest hour to God before anyone else can claim it.',
              'Begin small. Five minutes before the house wakes. A single psalm. A sentence of prayer. The soul, like any living thing, grows toward whatever light it is given. Give it the light of the Word in the morning, and it will lean there all day long.']},
       {cat:'Essays', date:'May 30, 2026', read:'8 min', title:'The Cost of a Surrendered Life', excerpt:'Surrender is the doorway through which grace finally enters.',
-       body:['We use the word "surrender" carefully in the Christian life, and rightly so. To those outside the faith it sounds like defeat — and in a sense it is. It is the defeat of the self that has long sat on the throne of its own life and refused to yield.',
-             'But Biblical surrender is not the surrender of the battlefield. It is the surrender of the marriage covenant — a willing, joyful, permanent giving over of oneself to another. What is lost is only what was never truly ours to keep: our own small kingdom, our own cramped version of a life.',
+       body:['We use the word "surrender" carefully in the Christian life, and rightly so. To those outside the faith it sounds like defeat, and in a sense it is. It is the defeat of the self that has long sat on the throne of its own life and refused to yield.',
+             'But Biblical surrender is not the surrender of the battlefield. It is the surrender of the marriage covenant: a willing, joyful, permanent giving over of oneself to another. What is lost is only what was never truly ours to keep: our own small kingdom, our own cramped version of a life.',
              'The cost is real. Jesus never minimised it. He spoke of crosses to be carried and of those who, having put their hand to the plough, must not look back. The path of surrender is not decorated with flowers.',
              'And yet every man or woman who has walked it will tell you the same: what they found on the other side was not the empty shell they feared, but a life more full than the one they relinquished. Grace does not enter a life that will not open. Surrender is the opening.']},
       {cat:'Devotionals', date:'May 18, 2026', read:'4 min', title:'A Lamp Unto My Feet', excerpt:'Walking by a light that reveals only the next faithful step.',
        body:['The image is deliberately modest. Not a floodlight illuminating the whole road. Not a map with every turning marked. A lamp. Enough light for the next step, and the one after that, but no more.',
-             'We want more than this. We want the whole road laid out before us — the junctions, the distances, the place where we will finally arrive. God, in his wisdom and love, most often declines to give it.',
-             'There is a reason for the limited light. A life walked by floodlight would require no faith. It would be navigation, not trust. The lamp is not a failure of divine generosity — it is the very shape of the relationship God intends.',
+             'We want more than this. We want the whole road laid out before us: the junctions, the distances, the place where we will finally arrive. God, in his wisdom and love, most often declines to give it.',
+             'There is a reason for the limited light. A life walked by floodlight would require no faith. It would be navigation, not trust. The lamp is not a failure of divine generosity; it is the very shape of the relationship God intends.',
              'Walk in the light you have. Do not demand tomorrow\'s light for today\'s step. The lamp is sufficient. He who holds it is faithful.']},
       {cat:'Sermons', date:'May 4, 2026', read:'27 min', title:'The God Who Goes Before', excerpt:'A message on the faithfulness of God in the wilderness seasons.',
        body:['There is a phrase repeated through the Pentateuch that I want us to sit with this morning. "The LORD thy God, he it is that doth go with thee; he will not fail thee, nor forsake thee." Deuteronomy 31:6. The God who goes before.',
              'The children of Israel knew something of wilderness. Forty years in a landscape with no landmarks, no certainty about tomorrow, no visible road home. And yet the text is insistent: he went before them. The cloud by day, the fire by night.',
              'Your wilderness may not be a desert. It may be a hospital corridor, an empty chair at the table, a career that has lost its footing, a grief that will not lift. But the word holds in every landscape: he goes before.',
-             'What does it mean that he goes before? It means he has already seen what you have not yet reached. The difficult conversation, the frightening diagnosis, the morning you cannot yet imagine — he is already there. Present and active in your future as he is in your now.']},
+             'What does it mean that he goes before? It means he has already seen what you have not yet reached. The difficult conversation, the frightening diagnosis, the morning you cannot yet imagine: he is already there. Present and active in your future as he is in your now.']},
       {cat:'Reflections', date:'Apr 21, 2026', read:'6 min', title:'Stones of Remembrance', excerpt:'On the holy work of keeping account of what God has done.',
        body:['When the Israelites crossed the Jordan, God commanded them to take twelve stones from the riverbed and set them up on the far bank. A monument. A memorial. A physical answer to the question their children would one day ask: what mean these stones?',
              'We are forgetful creatures. Not maliciously, but constitutionally. The things God has done for us slip through our hands like water, and we find ourselves in the next difficulty as if he had never answered the last one.',
              'The stones were a technology against forgetting. A practice of remembrance built into the landscape of daily life. Walk past the Jordan, see the stones, remember.',
-             'What are your stones? A journal entry, a date circled, a prayer written down and answered and kept. The discipline of remembrance is not nostalgia — it is fuel for the next step of faith.']},
+             'What are your stones? A journal entry, a date circled, a prayer written down and answered and kept. The discipline of remembrance is not nostalgia; it is fuel for the next step of faith.']},
       {cat:'Essays', date:'Apr 6, 2026', read:'9 min', title:'Letters to a Scattered Church', excerpt:'Encouragement for believers separated by oceans yet bound by one Spirit.',
        body:['Paul wrote letters. It is easy to overlook how extraordinary this was. He was one man, travelling on foot and by sea, carrying the gospel across an empire. He could not be everywhere. So he wrote.',
              'The letter is a form of presence in absence. When Paul wrote to the church at Philippi, "I thank my God upon every remembrance of you," he was refusing to let distance dissolve fellowship. The Spirit, he understood, does not respect geography.',
@@ -1166,13 +1166,13 @@ class Component extends DCLogic {
       {cat:'Devotionals', date:'Mar 22, 2026', read:'4 min', title:'Bread for Today', excerpt:'Why the manna could not be stored, and what that teaches of trust.',
        body:['The manna came every morning. Six days a week, without fail. But if you gathered more than your share and tried to keep it overnight, by morning it was rotten and full of worms.',
              'This was not an accident of nature. It was a design feature. God was teaching his people a lesson their former slavery had not prepared them for: daily dependence.',
-             'Manna could not be hoarded. It could not be stored. It arrived fresh every morning — and that was the point. God was not withholding. He was inviting trust.',
-             'Do not carry yesterday\'s bread into today. Go to the source this morning — fresh, dependent, expectant. The bread is there. It was there yesterday. It will be there tomorrow. That is his promise, and it has never failed.']},
+             'Manna could not be hoarded. It could not be stored. It arrived fresh every morning, and that was the point. God was not withholding. He was inviting trust.',
+             'Do not carry yesterday\'s bread into today. Go to the source this morning: fresh, dependent, expectant. The bread is there. It was there yesterday. It will be there tomorrow. That is his promise, and it has never failed.']},
       {cat:'Sermons', date:'Mar 8, 2026', read:'31 min', title:'The Patience of the Sower', excerpt:'On labouring faithfully in soil we may never see bear fruit.',
        body:['The sower in the parable does something quietly heroic every time I read it. He sows. Without knowing which ground will receive the seed. Without guarantee of harvest. Without any control over what happens once the seed leaves his hand.',
              'We live in a results culture. We measure success quickly and abandon what does not produce an immediate return. The sower could not have survived in a modern organisation. He wasted seed on hard ground, shallow ground, thorny ground.',
              'But the sower kept sowing. And the harvest, when it came, was thirty, sixty, a hundredfold. The fruitfulness of faithful sowing is not diminished by the seed that falls on difficult soil.',
-             'You may be sowing in ground that has not yet yielded. Keep sowing. The harvest is not yours to produce — only to plant toward. The Lord of the harvest will do the rest.']},
+             'You may be sowing in ground that has not yet yielded. Keep sowing. The harvest is not yours to produce, only to plant toward. The Lord of the harvest will do the rest.']},
     ];
     const allPostsRawBg=allPostsRaw.map((p,i)=>{const bp={...p,bg:tones[i%tones.length]};bp.onClick=()=>this.goPost(bp);return bp;});
     const latestPosts=allPostsRawBg.slice(0,3);
