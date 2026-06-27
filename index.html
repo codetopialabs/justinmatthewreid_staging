@@ -24,6 +24,11 @@
           margin: 0;
         }
 
+        @keyframes scriptFade {
+          from { opacity: 0; transform: translateY(5px); }
+          to   { opacity: 1; transform: none; }
+        }
+
         ::selection {
           background: #111111;
           color: #FFFFFF;
@@ -481,6 +486,13 @@
                       style-hover="border-color:#111111;">Buy on Amazon ↗</a>
                   </div>
                 </div>
+              </div>
+            </section>
+
+            <section style="padding:72px 32px;border-top:1px solid #E8E8E8;border-bottom:1px solid #E8E8E8;text-align:center;">
+              <div style="max-width:680px;margin:0 auto;animation:scriptFade .7s ease both;">
+                <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;line-height:1.55;color:#111111;margin:0 0 16px;">"{{ scripture }}"</p>
+                <span style="font-family:'EB Garamond',serif;text-transform:uppercase;letter-spacing:.22em;font-size:11.5px;color:#888888;">{{ scriptureRef }}</span>
               </div>
             </section>
 
@@ -1083,7 +1095,7 @@
           </div>
           <div
             style="padding-top:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#888888;letter-spacing:.03em;">
-            <span>© 2026 Justin Matthew Reid. Placeholder identity names &amp; photos to be replaced.</span>
+            <span>© 2026 Justin Matthew Reid.</span>
             <span>Built on Ghost · Designed by Codetopia Labs</span>
           </div>
         </div>
@@ -1114,7 +1126,26 @@
   <script type="text/x-dc" data-dc-script
     data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Clay&quot;,&quot;Olive&quot;,&quot;Burgundy&quot;,&quot;Ochre&quot;],&quot;default&quot;:&quot;Burgundy&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showGive&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { page:'home', filter:'All', sent:false, subscribed:false, lightbox:-1, menuOpen:false, currentPost:null };
+  state = { page:'home', filter:'All', sent:false, subscribed:false, lightbox:-1, menuOpen:false, currentPost:null,
+            scripture:'Thy word is a lamp unto my feet, and a light unto my path.', scriptureRef:'Psalm 119:105' };
+
+  constructor(props){
+    super(props);
+    this._fetchScripture();
+    setInterval(()=>this._fetchScripture(), 60000);
+  }
+
+  _fetchScripture(){
+    fetch('https://labs.bible.org/api/?passage=random&type=json')
+      .then(r=>r.json())
+      .then(d=>{
+        const v = Array.isArray(d) ? d[0] : d;
+        if(!v || !v.text) return;
+        const ref = `${v.bookname} ${v.chapter}:${v.verse}`;
+        this.setState({ scripture: v.text.trim(), scriptureRef: ref });
+      })
+      .catch(()=>{});
+  }
 
   go(p){ this.setState({page:p, menuOpen:false}); requestAnimationFrame(()=>{ try{window.scrollTo(0,0);}catch(e){} }); }
   goPost(post){ this.setState({page:'post', currentPost:post, menuOpen:false}); requestAnimationFrame(()=>{ try{window.scrollTo(0,0);}catch(e){} }); }
@@ -1226,6 +1257,8 @@ class Component extends DCLogic {
       menuIcon: this.state.menuOpen ? '✕' : '☰',
       menuDisplayStyle: this.state.menuOpen ? 'flex' : 'none',
       toggleMenu:()=>this.setState({menuOpen:!this.state.menuOpen}),
+      scripture: this.state.scripture,
+      scriptureRef: this.state.scriptureRef,
       navItems, latestPosts, posts:filtered, chips, books:restBooks, pillars, milestones, gallery, links,
       currentPost:cp, postBody:cp.body||[],
       sent:this.state.sent, notSent:!this.state.sent,
