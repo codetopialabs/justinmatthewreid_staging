@@ -1118,7 +1118,7 @@
     </div>
   </x-dc>
   <script type="text/x-dc" data-dc-script
-    data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Clay&quot;,&quot;Olive&quot;,&quot;Burgundy&quot;,&quot;Ochre&quot;],&quot;default&quot;:&quot;Burgundy&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showGive&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+    data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Clay&quot;,&quot;Olive&quot;,&quot;Burgundy&quot;,&quot;Ochre&quot;],&quot;default&quot;:&quot;Burgundy&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showGive&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;bibleTranslation&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;kjv&quot;,&quot;asv&quot;,&quot;web&quot;,&quot;darby&quot;],&quot;default&quot;:&quot;kjv&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   state = { page:'home', filter:'All', sent:false, subscribed:false, lightbox:-1, menuOpen:false, currentPost:null,
             scripture:'Thy word is a lamp unto my feet, and a light unto my path.', scriptureRef:'Psalm 119:105' };
@@ -1130,13 +1130,14 @@ class Component extends DCLogic {
   }
 
   _fetchScripture(){
-    fetch('https://labs.bible.org/api/?passage=random&type=json')
+    const translation = this.props.bibleTranslation || 'kjv';
+    fetch(`https://bible-api.com/data/${translation}/random`)
       .then(r=>r.json())
       .then(d=>{
-        const v = Array.isArray(d) ? d[0] : d;
+        const v = d.random_verse || d;
         if(!v || !v.text) return;
-        const ref = `${v.bookname} ${v.chapter}:${v.verse}`;
-        this.setState({ scripture: v.text.trim(), scriptureRef: ref });
+        const ref = `${v.book} ${v.chapter}:${v.verse}`;
+        this.setState({ scripture: v.text.trim().replace(/\n/g,' '), scriptureRef: ref });
       })
       .catch(()=>{});
   }
