@@ -90,6 +90,45 @@
           animation: slideDown .22s ease both;
         }
 
+        /* Smooth transitions on all interactive elements */
+        button, a {
+          transition: filter .18s ease, color .18s ease, border-color .18s ease,
+                      background .18s ease, transform .18s ease, box-shadow .22s ease;
+        }
+
+        /* Lift effect for writing cards */
+        .card-hover:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 18px 44px -14px rgba(0,0,0,.14);
+        }
+
+        /* Book cover subtle zoom */
+        .cover-panel {
+          overflow: hidden;
+        }
+        .cover-panel img {
+          transition: transform .42s ease;
+          display: block;
+        }
+        .cover-panel:hover img {
+          transform: scale(1.04);
+        }
+
+        /* Links page item lift */
+        .link-item:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 14px 30px -18px rgba(0,0,0,.25);
+        }
+
+        /* Milestone row highlight */
+        .milestone-row {
+          transition: background .2s ease;
+          border-radius: 2px;
+        }
+        .milestone-row:hover {
+          background: rgba(0,0,0,.03);
+        }
+
         /* NOTE: Attribute selectors use Chrome CSSOM format (spaces after colons,
    semicolon-space between props, leading zeros: .95fr -> 0.95fr) */
 
@@ -320,7 +359,7 @@
 
         <!-- ===================== HOME ===================== -->
         <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
-          <div style="opacity:1;">
+          <div style="animation:fadeUp .38s ease both;">
 
             <section style="padding:78px 32px 92px;">
               <div
@@ -390,8 +429,7 @@
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
                   <sc-for list="{{ latestPosts }}" as="post" hint-placeholder-count="3">
-                    <button onClick="{{ post.onClick }}"
-                      style="text-align:left;background:none;border:none;padding:0;cursor:pointer;display:flex;flex-direction:column;">
+                    <button onClick="{{ post.onClick }}" style="text-align:left;background:none;border:none;padding:0;cursor:pointer;display:flex;flex-direction:column;transition:none;">
                       <div
                         style="position:relative;width:100%;aspect-ratio:3/2;background:{{ post.bg }};border:1px solid rgba(0,0,0,.10);overflow:hidden;display:flex;align-items:center;justify-content:center;">
                         <span
@@ -404,7 +442,7 @@
                       <h3
                         style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:#111111;margin:0 0 10px;line-height:1.14;">
                         {{ post.title }}</h3>
-                      <p style="font-size:16px;line-height:1.62;color:#555555;margin:0 0 14px;">{{ post.excerpt }}</p>
+                      <p style="font-family:'EB Garamond',serif;font-size:16px;line-height:1.62;color:#555555;margin:0 0 14px;">{{ post.excerpt }}</p>
                       <span style="font-family:'EB Garamond',serif;font-size:15px;color:{{ accent }};letter-spacing:.03em;margin-top:auto;">Read · {{ post.read }} →</span>
                     </button>
                   </sc-for>
@@ -416,7 +454,7 @@
               <div
                 style="max-width:1180px;margin:0 auto;background:#F7F7F7;border:1px solid #E5E5E5;display:grid;grid-template-columns:.8fr 1.2fr;">
                 <div
-                  style="position:relative;background:#111111;display:flex;align-items:center;justify-content:center;padding:48px;min-height:420px;">
+                  class="cover-panel" style="position:relative;background:#111111;display:flex;align-items:center;justify-content:center;padding:48px;min-height:420px;">
                   <img src="./images/judging-righteous-judgment.jpg" alt="Judging Righteous Judgment"
                     style="width:62%;aspect-ratio:2/3;object-fit:cover;box-shadow:0 28px 50px -20px rgba(0,0,0,.6);" />
                 </div>
@@ -520,7 +558,7 @@
 
         <!-- ===================== ABOUT ===================== -->
         <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-          <div style="opacity:1;">
+          <div style="animation:fadeUp .38s ease both;">
 
             <section style="padding:78px 32px 84px;">
               <div
@@ -600,7 +638,7 @@
                 <div>
                   <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="5">
                     <div
-                      style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid #E0E0E0;align-items:baseline;">
+                      class="milestone-row" style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:22px 8px;border-bottom:1px solid #E0E0E0;align-items:baseline;">
                       <div
                         style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;color:{{ accent }};">
                         {{ m.year }}</div>
@@ -650,7 +688,7 @@
 
         <!-- ===================== BLOG ===================== -->
         <sc-if value="{{ isBlog }}" hint-placeholder-val="{{ false }}">
-          <div style="opacity:1;">
+          <div style="animation:fadeUp .38s ease both;">
 
             <section style="padding:78px 32px 40px;text-align:center;">
               <div style="max-width:760px;margin:0 auto;">
@@ -660,7 +698,7 @@
                 <h1
                   style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:60px;line-height:1.04;color:#111111;margin:0 0 20px;">
                   Writings &amp; Reflections</h1>
-                <p style="font-size:18px;line-height:1.7;color:#555555;margin:0;">A directory of essays, sermon notes,
+                <p style="font-family:'EB Garamond',serif;font-size:18px;line-height:1.7;color:#555555;margin:0;">A directory of essays, sermon notes,
                   and short reflections gathered for the journey home.</p>
               </div>
             </section>
@@ -677,7 +715,7 @@
               <div
                 style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:44px 40px;">
                 <sc-for list="{{ posts }}" as="post" hint-placeholder-count="6">
-                  <button onClick="{{ post.onClick }}" style="text-align:left;background:none;border:none;padding:0;cursor:pointer;display:flex;flex-direction:column;">
+                  <button onClick="{{ post.onClick }}" style="text-align:left;background:none;border:none;padding:0;cursor:pointer;display:flex;flex-direction:column;transition:none;">
                     <div
                       style="position:relative;width:100%;aspect-ratio:3/2;background:{{ post.bg }};border:1px solid rgba(0,0,0,.09);overflow:hidden;display:flex;align-items:center;justify-content:center;">
                       <span
@@ -690,7 +728,7 @@
                     <h3
                       style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:#111111;margin:0 0 10px;line-height:1.14;">
                       {{ post.title }}</h3>
-                    <p style="font-size:16px;line-height:1.64;color:#555555;margin:0 0 16px;">{{ post.excerpt }}</p>
+                    <p style="font-family:'EB Garamond',serif;font-size:16px;line-height:1.64;color:#555555;margin:0 0 16px;">{{ post.excerpt }}</p>
                     <span
                       style="font-family:'EB Garamond',serif;font-size:15px;color:{{ accent }};letter-spacing:.03em;margin-top:auto;">Read
                       · {{ post.read }} →</span>
@@ -704,7 +742,7 @@
 
         <!-- ===================== POST DETAIL ===================== -->
         <sc-if value="{{ isPost }}" hint-placeholder-val="{{ false }}">
-          <div style="opacity:1;">
+          <div style="animation:fadeUp .38s ease both;">
             <section style="padding:56px 32px 96px;">
               <div style="max-width:720px;margin:0 auto;">
 
@@ -724,7 +762,7 @@
 
                 <sc-for list="{{ postBody }}" as="para" hint-placeholder-count="4">
                   <p
-                    style="font-family:'EB Garamond',serif;font-size:19px;line-height:1.84;color:#333333;margin:0 0 28px;">
+                    style="font-family:'EB Garamond',serif;font-size:19px;line-height:1.84;color:#555555;margin:0 0 28px;">
                     {{ para }}</p>
                 </sc-for>
 
@@ -737,7 +775,7 @@
                   <h3
                     style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;color:#111111;margin:0 0 10px;">
                     Receive the monthly reflection</h3>
-                  <p style="font-size:16px;line-height:1.7;color:#555555;margin:0 0 20px;">One unhurried letter each
+                  <p style="font-family:'EB Garamond',serif;font-size:16px;line-height:1.7;color:#555555;margin:0 0 20px;">One unhurried letter each
                     month — a meditation, a passage, and a word of encouragement. No noise.</p>
                   <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
                     <div
@@ -763,7 +801,7 @@
 
         <!-- ===================== LINKS ===================== -->
         <sc-if value="{{ isLinks }}" hint-placeholder-val="{{ false }}">
-          <div style="opacity:1;">
+          <div style="animation:fadeUp .38s ease both;">
 
             <section style="padding:78px 32px 48px;text-align:center;">
               <div style="max-width:680px;margin:0 auto;">
@@ -784,7 +822,7 @@
               <div style="max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:14px;">
                 <sc-for list="{{ links }}" as="lk" hint-placeholder-count="8">
                   <a href="{{ lk.href }}" target="_blank" rel="noopener"
-                    style="display:flex;align-items:center;gap:20px;padding:20px 24px;background:#F7F7F7;border:1px solid #E5E5E5;border-radius:3px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;"
+                    class="link-item" style="display:flex;align-items:center;gap:20px;padding:20px 24px;background:#F7F7F7;border:1px solid #E5E5E5;border-radius:3px;text-decoration:none;"
                     style-hover="border-color:{{ accent }};transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(60,40,20,.5);">
                     <span
                       style="flex:none;width:46px;height:46px;border-radius:50%;background:{{ lk.bg }};display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:{{ accent }};">{{
@@ -806,7 +844,7 @@
 
         <!-- ===================== BOOKS ===================== -->
         <sc-if value="{{ isBooks }}" hint-placeholder-val="{{ false }}">
-          <div style="opacity:1;">
+          <div style="animation:fadeUp .38s ease both;">
 
             <section style="padding:78px 32px 36px;text-align:center;">
               <div style="max-width:720px;margin:0 auto;">
@@ -825,7 +863,7 @@
               <div
                 style="max-width:1180px;margin:0 auto;background:#F7F7F7;border:1px solid #E5E5E5;display:grid;grid-template-columns:.85fr 1.15fr;">
                 <div
-                  style="position:relative;background:#111111;display:flex;align-items:center;justify-content:center;padding:56px;">
+                  class="cover-panel" style="position:relative;background:#111111;display:flex;align-items:center;justify-content:center;padding:56px;">
                   <img src="./images/judging-righteous-judgment.jpg" alt="Judging Righteous Judgment"
                     style="width:66%;aspect-ratio:2/3;object-fit:cover;box-shadow:0 32px 56px -22px rgba(0,0,0,.65);" />
                 </div>
@@ -894,7 +932,7 @@
 
         <!-- ===================== CONTACT ===================== -->
         <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
-          <div style="opacity:1;">
+          <div style="animation:fadeUp .38s ease both;">
 
             <section style="padding:78px 32px 92px;">
               <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;">
