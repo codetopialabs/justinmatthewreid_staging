@@ -11,11 +11,6 @@
   <x-dc>
     <helmet>
 
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap"
-        rel="stylesheet">
       <style>
         * {
           box-sizing: border-box;
@@ -63,7 +58,7 @@
           background: #111111;
           color: #FFFFFF;
           text-align: center;
-          font-family: 'Source Serif 4', serif;
+          font-family: Georgia, serif;
           text-transform: uppercase;
           letter-spacing: .18em;
           font-size: 12px;
@@ -308,7 +303,7 @@
       </style>
     </helmet>
 
-    <div style="background:#FAFAFA;min-height:100vh;font-family:'Source Serif 4',serif;color:#111111;">
+    <div style="background:#FAFAFA;min-height:100vh;font-family:Georgia,serif;color:#111111;">
 
       <header
         style="position:sticky;top:0;z-index:50;background:rgba(250,250,250,.95);backdrop-filter:blur(8px);border-bottom:1px solid #E5E5E5;">
@@ -322,10 +317,8 @@
         </sc-if>
         <div
           style="max-width:1180px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
-          <button onClick="{{ goHome }}" style="background:none;border:none;cursor:pointer;padding:0;">
-            <div
-              style="font-family:'Spectral',serif;font-weight:700;font-size:28px;letter-spacing:.12em;color:#111111;line-height:1;">
-              JMR</div>
+          <button onClick="{{ goHome }}" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;">
+            <img src="./images/jmr-logo.png" alt="Justin Matthew Reid" style="height:68px;width:68px;display:block;">
           </button>
 
           <!-- Desktop nav -->
@@ -346,7 +339,7 @@
           style="display:{{ menuDisplayStyle }};border-top:1px solid #E5E5E5;background:rgba(250,250,250,.98);padding:12px 32px 20px;flex-direction:column;gap:0;">
           <sc-for list="{{ navItems }}" as="mitem" hint-placeholder-count="6">
             <button onClick="{{ mitem.onClick }}"
-              style="font-family:'Source Serif 4',serif;font-size:17px;letter-spacing:.04em;color:#111111;background:none;border:none;cursor:pointer;padding:12px 0;text-align:left;border-bottom:1px solid #EEEEEE;width:100%;">{{
+              style="font-family:Georgia,serif;font-size:17px;letter-spacing:.04em;color:#111111;background:none;border:none;cursor:pointer;padding:12px 0;text-align:left;border-bottom:1px solid #EEEEEE;width:100%;">{{
               mitem.label }}</button>
           </sc-for>
         </div>
@@ -363,20 +356,20 @@
                 style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;">
                 <div>
                   <div
-                    style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:26px;">
+                    style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:26px;">
                     Minister · Author · Servant of the Word</div>
                   <h1
-                    style="font-family:'Spectral',serif;font-weight:500;font-size:66px;line-height:1.04;letter-spacing:-.01em;color:#111111;margin:0 0 26px;">
+                    style="font-family:Georgia,serif;font-weight:500;font-size:66px;line-height:1.04;letter-spacing:-.01em;color:#111111;margin:0 0 26px;">
                     Words written<br>to steady the soul.</h1>
                   <p style="font-size:19px;line-height:1.72;color:#555555;max-width:31em;margin:0 0 38px;">For three
                     decades Justin Matthew Reid has taught Scripture and set its hope to paper: books,
                     reflections, and letters for pilgrims walking the long road home.</p>
                   <div style="display:flex;gap:16px;flex-wrap:wrap;">
                     <button onClick="{{ goBlog }}"
-                      style="font-family:'Source Serif 4',serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:14px 30px;border-radius:2px;"
+                      style="font-family:Georgia,serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:14px 30px;border-radius:2px;"
                       style-hover="filter:brightness(1.08);">Read the Writings</button>
                     <button onClick="{{ goBooks }}"
-                      style="font-family:'Source Serif 4',serif;font-size:16px;letter-spacing:.03em;color:#111111;background:none;border:1px solid #CCCCCC;cursor:pointer;padding:14px 30px;border-radius:2px;"
+                      style="font-family:Georgia,serif;font-size:16px;letter-spacing:.03em;color:#111111;background:none;border:1px solid #CCCCCC;cursor:pointer;padding:14px 30px;border-radius:2px;"
                       style-hover="border-color:#111111;">Explore the Books</button>
                   </div>
                 </div>
@@ -387,11 +380,11 @@
                       style="position:absolute;inset:0;background:radial-gradient(120% 80% at 72% 18%,rgba(255,255,255,.4),transparent 58%);">
                     </div>
                     <span
-                      style="font-family:'Source Serif 4',serif;font-style:italic;font-size:19px;color:rgba(100,100,100,.5);position:relative;">Author
+                      style="font-family:Georgia,serif;font-style:italic;font-size:19px;color:rgba(100,100,100,.5);position:relative;">Author
                       portrait</span>
                   </div>
                   <div
-                    style="font-family:'Source Serif 4',serif;font-style:italic;font-size:16px;color:#888888;margin-top:16px;text-align:center;">
+                    style="font-family:Georgia,serif;font-style:italic;font-size:16px;color:#888888;margin-top:16px;text-align:center;">
                     "A workman that needeth not to be ashamed."</div>
                 </div>
               </div>
@@ -400,10 +393,10 @@
             <section style="background:#111111;padding:74px 32px;">
               <div style="max-width:880px;margin:0 auto;text-align:center;animation:scriptFade .7s ease both;">
                 <p
-                  style="font-family:'Spectral',serif;font-style:italic;font-weight:500;font-size:35px;line-height:1.42;color:#EEEEEE;margin:0;">
+                  style="font-family:Georgia,serif;font-style:italic;font-weight:500;font-size:35px;line-height:1.42;color:#EEEEEE;margin:0;">
                   "{{ scripture }}"</p>
                 <div
-                  style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.26em;font-size:12px;color:#999999;margin-top:26px;">
+                  style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.26em;font-size:12px;color:#999999;margin-top:26px;">
                   {{ scriptureRef }}</div>
               </div>
             </section>
@@ -414,14 +407,14 @@
                   style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px;flex-wrap:wrap;">
                   <div>
                     <div
-                      style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
+                      style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
                       From the desk</div>
                     <h2
-                      style="font-family:'Spectral',serif;font-weight:500;font-size:42px;color:#111111;margin:0;">
+                      style="font-family:Georgia,serif;font-weight:500;font-size:42px;color:#111111;margin:0;">
                       Latest writings</h2>
                   </div>
                   <button onClick="{{ goBlog }}"
-                    style="font-family:'Source Serif 4',serif;font-size:16px;color:{{ accent }};background:none;border:none;cursor:pointer;letter-spacing:.03em;padding:0;border-bottom:1px solid currentColor;">View
+                    style="font-family:Georgia,serif;font-size:16px;color:{{ accent }};background:none;border:none;cursor:pointer;letter-spacing:.03em;padding:0;border-bottom:1px solid currentColor;">View
                     all reflections <svg width="14" height="8" viewBox="0 0 14 8" fill="none" style="display:inline-block;vertical-align:middle;margin-left:2px;" xmlns="http://www.w3.org/2000/svg"><path d="M1 4H13M10 1L13 4L10 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
@@ -430,17 +423,17 @@
                       <div
                         style="position:relative;width:100%;aspect-ratio:3/2;background:{{ post.bg }};border:1px solid rgba(0,0,0,.10);overflow:hidden;display:flex;align-items:center;justify-content:center;">
                         <span
-                          style="font-family:'Source Serif 4',serif;font-style:italic;font-size:15px;color:rgba(100,100,100,.45);">{{
+                          style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:rgba(100,100,100,.45);">{{
                           post.cat }}</span>
                       </div>
                       <div
-                        style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin:20px 0 10px;">
+                        style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin:20px 0 10px;">
                         {{ post.cat }} · {{ post.read }}</div>
                       <h3
-                        style="font-family:'Spectral',serif;font-weight:600;font-size:26px;color:#111111;margin:0 0 10px;line-height:1.14;">
+                        style="font-family:Georgia,serif;font-weight:600;font-size:26px;color:#111111;margin:0 0 10px;line-height:1.14;">
                         {{ post.title }}</h3>
-                      <p style="font-family:'Source Serif 4',serif;font-size:16px;line-height:1.62;color:#555555;margin:0 0 14px;">{{ post.excerpt }}</p>
-                      <span style="font-family:'Source Serif 4',serif;font-size:15px;color:{{ accent }};letter-spacing:.03em;margin-top:auto;display:flex;align-items:center;gap:5px;">Read · {{ post.read }} <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4H13M10 1L13 4L10 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      <p style="font-family:Georgia,serif;font-size:16px;line-height:1.62;color:#555555;margin:0 0 14px;">{{ post.excerpt }}</p>
+                      <span style="font-family:Georgia,serif;font-size:15px;color:{{ accent }};letter-spacing:.03em;margin-top:auto;display:flex;align-items:center;gap:5px;">Read · {{ post.read }} <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4H13M10 1L13 4L10 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                     </button>
                   </sc-for>
                 </div>
@@ -457,13 +450,13 @@
                 </div>
                 <div style="padding:56px 56px;">
                   <div
-                    style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
+                    style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
                     New release · 2026</div>
                   <h2
-                    style="font-family:'Spectral',serif;font-weight:600;font-size:44px;color:#111111;margin:0 0 8px;line-height:1.05;">
+                    style="font-family:Georgia,serif;font-weight:600;font-size:44px;color:#111111;margin:0 0 8px;line-height:1.05;">
                     Judging Righteous Judgment</h2>
                   <p
-                    style="font-family:'Source Serif 4',serif;font-style:italic;font-size:21px;color:#888888;margin:0 0 24px;">
+                    style="font-family:Georgia,serif;font-style:italic;font-size:21px;color:#888888;margin:0 0 24px;">
                     A Biblical investigation into righteous judgment</p>
                   <p style="font-size:17px;line-height:1.74;color:#555555;margin:0 0 32px;max-width:34em;">If you have
                     wondered what place judgment has in the life of a Christian, this book is for you. A timely and
@@ -471,10 +464,10 @@
                     that judgment is always negative and condemning.</p>
                   <div style="display:flex;gap:14px;flex-wrap:wrap;">
                     <button onClick="{{ goBooks }}"
-                      style="font-family:'Source Serif 4',serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:13px 28px;border-radius:2px;"
+                      style="font-family:Georgia,serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:13px 28px;border-radius:2px;"
                       style-hover="filter:brightness(1.08);">View the book</button>
                     <a href="https://www.amazon.com" target="_blank" rel="noopener"
-                      style="font-family:'Source Serif 4',serif;font-size:16px;letter-spacing:.03em;color:#111111;background:none;border:1px solid #CCCCCC;cursor:pointer;padding:13px 28px;border-radius:2px;text-decoration:none;"
+                      style="font-family:Georgia,serif;font-size:16px;letter-spacing:.03em;color:#111111;background:none;border:1px solid #CCCCCC;cursor:pointer;padding:13px 28px;border-radius:2px;text-decoration:none;"
                       style-hover="border-color:#111111;">Buy on Amazon ↗</a>
                   </div>
                 </div>
@@ -487,36 +480,36 @@
                 style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
                 <div>
                   <div
-                    style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
+                    style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
                     The ministry</div>
                   <h2
-                    style="font-family:'Spectral',serif;font-weight:500;font-size:42px;color:#111111;margin:0 0 20px;line-height:1.1;">
+                    style="font-family:Georgia,serif;font-weight:500;font-size:42px;color:#111111;margin:0 0 20px;line-height:1.1;">
                     Rooted in the Word,<br>written for the journey.</h2>
                   <p style="font-size:18px;line-height:1.74;color:#555555;margin:0 0 28px;max-width:32em;">His ministry is devoted to teaching Scripture, writing for the church, and encouraging believers wherever they are on the road.</p>
                   <button onClick="{{ goAbout }}"
-                    style="font-family:'Source Serif 4',serif;font-size:16px;color:{{ accent }};background:none;border:none;cursor:pointer;letter-spacing:.03em;padding:0;border-bottom:1px solid currentColor;">Read
+                    style="font-family:Georgia,serif;font-size:16px;color:{{ accent }};background:none;border:none;cursor:pointer;letter-spacing:.03em;padding:0;border-bottom:1px solid currentColor;">Read
                     our vision <svg width="14" height="8" viewBox="0 0 14 8" fill="none" style="display:inline-block;vertical-align:middle;margin-left:2px;" xmlns="http://www.w3.org/2000/svg"><path d="M1 4H13M10 1L13 4L10 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                 </div>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
                   <div
                     style="aspect-ratio:1;background:linear-gradient(135deg,#D8D8D8,#C0C0C0);display:flex;align-items:center;justify-content:center;">
                     <span
-                      style="font-family:'Source Serif 4',serif;font-style:italic;font-size:13px;color:rgba(100,100,100,.45);">Ministry</span>
+                      style="font-family:Georgia,serif;font-style:italic;font-size:13px;color:rgba(100,100,100,.45);">Ministry</span>
                   </div>
                   <div
                     style="aspect-ratio:1;background:linear-gradient(135deg,#D0D0D0,#B8B8B8);display:flex;align-items:center;justify-content:center;">
                     <span
-                      style="font-family:'Source Serif 4',serif;font-style:italic;font-size:13px;color:rgba(100,100,100,.45);">Worship</span>
+                      style="font-family:Georgia,serif;font-style:italic;font-size:13px;color:rgba(100,100,100,.45);">Worship</span>
                   </div>
                   <div
                     style="aspect-ratio:1;background:linear-gradient(135deg,#DCDCDC,#C8C8C8);display:flex;align-items:center;justify-content:center;">
                     <span
-                      style="font-family:'Source Serif 4',serif;font-style:italic;font-size:13px;color:rgba(100,100,100,.45);">Mission</span>
+                      style="font-family:Georgia,serif;font-style:italic;font-size:13px;color:rgba(100,100,100,.45);">Mission</span>
                   </div>
                   <div
                     style="aspect-ratio:1;background:linear-gradient(135deg,#D4D4D4,#B4B4B4);display:flex;align-items:center;justify-content:center;">
                     <span
-                      style="font-family:'Source Serif 4',serif;font-style:italic;font-size:13px;color:rgba(100,100,100,.45);">Service</span>
+                      style="font-family:Georgia,serif;font-style:italic;font-size:13px;color:rgba(100,100,100,.45);">Service</span>
                   </div>
                 </div>
               </div>
@@ -525,26 +518,26 @@
             <section style="padding:90px 32px;">
               <div style="max-width:760px;margin:0 auto;text-align:center;">
                 <div
-                  style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:16px;">
+                  style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:16px;">
                   The letter</div>
                 <h2
-                  style="font-family:'Spectral',serif;font-weight:500;font-size:40px;color:#111111;margin:0 0 16px;">
+                  style="font-family:Georgia,serif;font-weight:500;font-size:40px;color:#111111;margin:0 0 16px;">
                   Receive the monthly reflection</h2>
                 <p style="font-size:18px;line-height:1.7;color:#555555;margin:0 0 32px;">A single, unhurried letter each
                   month a meditation, a passage, and word from the field. No noise.</p>
                 <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
                   <div
-                    style="font-family:'Source Serif 4',serif;font-style:italic;font-size:22px;color:{{ accent }};">
+                    style="font-family:Georgia,serif;font-style:italic;font-size:22px;color:{{ accent }};">
                     Thank you grace and peace. Look for the first letter soon.</div>
                 </sc-if>
                 <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
                   <form onSubmit="{{ subscribe }}"
                     style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:520px;margin:0 auto;">
                     <input type="email" required placeholder="your@email.com"
-                      style="flex:1;min-width:240px;font-family:'Source Serif 4',serif;font-size:16px;padding:14px 18px;background:#F7F7F7;border:1px solid #DDDDDD;border-radius:2px;color:#111111;"
+                      style="flex:1;min-width:240px;font-family:Georgia,serif;font-size:16px;padding:14px 18px;background:#F7F7F7;border:1px solid #DDDDDD;border-radius:2px;color:#111111;"
                       style-focus="outline:none;border-color:{{ accent }};" />
                     <button type="submit"
-                      style="font-family:'Source Serif 4',serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:14px 28px;border-radius:2px;"
+                      style="font-family:Georgia,serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:14px 28px;border-radius:2px;"
                       style-hover="filter:brightness(1.08);">Subscribe</button>
                   </form>
                 </sc-if>
@@ -563,23 +556,32 @@
                 style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
                 <div>
                   <div
-                    style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:24px;">
+                    style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:24px;">
                     About the author</div>
                   <h1
-                    style="font-family:'Spectral',serif;font-weight:500;font-size:58px;line-height:1.05;color:#111111;margin:0 0 24px;">
+                    style="font-family:Georgia,serif;font-weight:500;font-size:58px;line-height:1.05;color:#111111;margin:0 0 24px;">
                     A life given to<br>the Word.</h1>
-                  <p style="font-size:18px;line-height:1.78;color:#555555;margin:0 0 20px;">Justin Matthew Reid was
-                    called to ministry in 1998 and has since served congregations and believers in his community
-                    and beyond. He is a teacher of Scripture, a preacher of the Word, and the author of published books on
-                    prayer, perseverance, and the ordinary grace of God.</p>
-                  <p style="font-size:18px;line-height:1.78;color:#555555;margin:0;">He and his wife make their home in
-                    Accra, where his ministry continues its work of teaching, preaching, and writing.</p>
+                  <p style="font-size:18px;line-height:1.78;color:#555555;margin:0 0 20px;">Justin Matthew Reid left
+                    the glamorous life of America in 2021 to become a full-time Christian missionary to the beautiful
+                    people of Ghana, West Africa.</p>
+                  <p style="font-size:18px;line-height:1.78;color:#555555;margin:0 0 20px;">He is anointed and called
+                    of the Lord to be a deeply inspirational teacher of God's Word to the body of Christ both locally
+                    in Ghana and also worldwide through the writings in his books and on this website.</p>
+                  <p style="font-size:18px;line-height:1.78;color:#555555;margin:0 0 20px;">Justin has learned the
+                    holy secret of being crucified with Christ and therefore no longer lives to please himself, but
+                    Christ.</p>
+                  <p style="font-size:18px;line-height:1.78;color:#555555;margin:0 0 20px;">He has been used by the
+                    Lord to demonstrate God's great love through the distribution of foodstuffs and other donations
+                    to the needy people of Africa.</p>
+                  <p style="font-size:18px;line-height:1.78;color:#555555;margin:0;">JMR plans to continue on this
+                    lovely course in Christ until physical death or the 2nd coming of Jesus (whichever comes
+                    first)!</p>
                 </div>
                 <div>
                   <div
-                    style="position:relative;width:100%;aspect-ratio:4/5;background:linear-gradient(140deg,#D8D8D8,#B0B0B0);border:1px solid rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 24px 60px -30px rgba(0,0,0,.35);">
-                    <span
-                      style="font-family:'Source Serif 4',serif;font-style:italic;font-size:19px;color:rgba(100,100,100,.5);">Portrait</span>
+                    style="position:relative;width:100%;aspect-ratio:4/5;background:linear-gradient(140deg,#D8D8D8,#B0B0B0);border:1px solid rgba(0,0,0,.14);overflow:hidden;box-shadow:0 24px 60px -30px rgba(0,0,0,.35);">
+                    <img src="./images/justin-matthew-reid-portrait.jpg" alt="Justin Matthew Reid"
+                      style="width:100%;height:100%;object-fit:cover;display:block;">
                   </div>
                 </div>
               </div>
@@ -588,11 +590,11 @@
             <section style="background:#111111;padding:78px 32px;">
               <div style="max-width:920px;margin:0 auto;text-align:center;">
                 <p
-                  style="font-family:'Spectral',serif;font-style:italic;font-weight:500;font-size:32px;line-height:1.46;color:#EEEEEE;margin:0;">
+                  style="font-family:Georgia,serif;font-style:italic;font-weight:500;font-size:32px;line-height:1.46;color:#EEEEEE;margin:0;">
                   "We are pilgrims and strangers here and so we write the road down, that those behind us might walk it
                   with less fear."</p>
                 <div
-                  style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.26em;font-size:12px;color:#999999;margin-top:26px;">
+                  style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.26em;font-size:12px;color:#999999;margin-top:26px;">
                   Justin Matthew Reid</div>
               </div>
             </section>
@@ -601,20 +603,20 @@
               <div style="max-width:1180px;margin:0 auto;">
                 <div style="text-align:center;margin-bottom:56px;">
                   <div
-                    style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
+                    style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
                     Our vision</div>
                   <h2
-                    style="font-family:'Spectral',serif;font-weight:500;font-size:42px;color:#111111;margin:0;">
+                    style="font-family:Georgia,serif;font-weight:500;font-size:42px;color:#111111;margin:0;">
                     Three convictions, one work</h2>
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
                   <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
                     <div style="text-align:center;padding:0 8px;">
                       <div
-                        style="font-family:'Spectral',serif;font-size:30px;color:{{ accent }};margin-bottom:14px;">
+                        style="font-family:Georgia,serif;font-size:30px;color:{{ accent }};margin-bottom:14px;">
                         {{ p.roman }}</div>
                       <h3
-                        style="font-family:'Spectral',serif;font-weight:600;font-size:26px;color:#111111;margin:0 0 12px;">
+                        style="font-family:Georgia,serif;font-weight:600;font-size:26px;color:#111111;margin:0 0 12px;">
                         {{ p.title }}</h3>
                       <p style="font-size:16px;line-height:1.7;color:#555555;margin:0;">{{ p.body }}</p>
                     </div>
@@ -627,10 +629,10 @@
               <div style="max-width:820px;margin:0 auto;">
                 <div style="text-align:center;margin-bottom:50px;">
                   <div
-                    style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
+                    style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
                     The journey</div>
                   <h2
-                    style="font-family:'Spectral',serif;font-weight:500;font-size:42px;color:#111111;margin:0;">
+                    style="font-family:Georgia,serif;font-weight:500;font-size:42px;color:#111111;margin:0;">
                     Milestones of the ministry</h2>
                 </div>
                 <div>
@@ -638,11 +640,11 @@
                     <div
                       class="milestone-row" style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:22px 8px;border-bottom:1px solid #E0E0E0;align-items:baseline;">
                       <div
-                        style="font-family:'Spectral',serif;font-weight:600;font-size:28px;color:{{ accent }};">
+                        style="font-family:Georgia,serif;font-weight:600;font-size:28px;color:{{ accent }};">
                         {{ m.year }}</div>
                       <div>
                         <h3
-                          style="font-family:'Spectral',serif;font-weight:600;font-size:23px;color:#111111;margin:0 0 5px;">
+                          style="font-family:Georgia,serif;font-weight:600;font-size:23px;color:#111111;margin:0 0 5px;">
                           {{ m.title }}</h3>
                         <p style="font-size:16px;line-height:1.65;color:#555555;margin:0;">{{ m.body }}</p>
                       </div>
@@ -658,13 +660,13 @@
                   style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap;">
                   <div>
                     <div
-                      style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
+                      style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:14px;">
                       From the field</div>
                     <h2
-                      style="font-family:'Spectral',serif;font-weight:500;font-size:42px;color:#111111;margin:0;">
+                      style="font-family:Georgia,serif;font-weight:500;font-size:42px;color:#111111;margin:0;">
                       Ministry gallery</h2>
                   </div>
-                  <span style="font-family:'Source Serif 4',serif;font-size:15px;color:#888888;font-style:italic;">Select
+                  <span style="font-family:Georgia,serif;font-size:15px;color:#888888;font-style:italic;">Select
                     an image to view</span>
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
@@ -673,7 +675,7 @@
                       style="border:none;padding:0;cursor:pointer;position:relative;aspect-ratio:4/3;background:{{ g.bg }};overflow:hidden;display:flex;align-items:center;justify-content:center;"
                       style-hover="filter:brightness(1.05);">
                       <span
-                        style="font-family:'Source Serif 4',serif;font-style:italic;font-size:15px;color:rgba(100,100,100,.45);">{{
+                        style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:rgba(100,100,100,.45);">{{
                         g.label }}</span>
                     </button>
                   </sc-for>
@@ -691,12 +693,12 @@
             <section style="padding:78px 32px 40px;text-align:center;">
               <div style="max-width:760px;margin:0 auto;">
                 <div
-                  style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
+                  style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
                   Essays · Reflections · Sermons</div>
                 <h1
-                  style="font-family:'Spectral',serif;font-weight:500;font-size:60px;line-height:1.04;color:#111111;margin:0 0 20px;">
+                  style="font-family:Georgia,serif;font-weight:500;font-size:60px;line-height:1.04;color:#111111;margin:0 0 20px;">
                   Writings &amp; Reflections</h1>
-                <p style="font-family:'Source Serif 4',serif;font-size:18px;line-height:1.7;color:#555555;margin:0;">A directory of essays, sermon notes,
+                <p style="font-family:Georgia,serif;font-size:18px;line-height:1.7;color:#555555;margin:0;">A directory of essays, sermon notes,
                   and short reflections gathered for the journey home.</p>
               </div>
             </section>
@@ -717,18 +719,18 @@
                     <div
                       style="position:relative;width:100%;aspect-ratio:3/2;background:{{ post.bg }};border:1px solid rgba(0,0,0,.09);overflow:hidden;display:flex;align-items:center;justify-content:center;">
                       <span
-                        style="font-family:'Source Serif 4',serif;font-style:italic;font-size:15px;color:rgba(100,100,100,.45);">{{
+                        style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:rgba(100,100,100,.45);">{{
                         post.cat }}</span>
                     </div>
                     <div
-                      style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin:20px 0 10px;">
+                      style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:{{ accent }};margin:20px 0 10px;">
                       {{ post.cat }} · {{ post.date }}</div>
                     <h3
-                      style="font-family:'Spectral',serif;font-weight:600;font-size:26px;color:#111111;margin:0 0 10px;line-height:1.14;">
+                      style="font-family:Georgia,serif;font-weight:600;font-size:26px;color:#111111;margin:0 0 10px;line-height:1.14;">
                       {{ post.title }}</h3>
-                    <p style="font-family:'Source Serif 4',serif;font-size:16px;line-height:1.64;color:#555555;margin:0 0 16px;">{{ post.excerpt }}</p>
+                    <p style="font-family:Georgia,serif;font-size:16px;line-height:1.64;color:#555555;margin:0 0 16px;">{{ post.excerpt }}</p>
                     <span
-                      style="font-family:'Source Serif 4',serif;font-size:15px;color:{{ accent }};letter-spacing:.03em;margin-top:auto;display:flex;align-items:center;gap:5px;">Read · {{ post.read }} <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4H13M10 1L13 4L10 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      style="font-family:Georgia,serif;font-size:15px;color:{{ accent }};letter-spacing:.03em;margin-top:auto;display:flex;align-items:center;gap:5px;">Read · {{ post.read }} <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4H13M10 1L13 4L10 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                   </button>
                 </sc-for>
               </div>
@@ -744,22 +746,22 @@
               <div style="max-width:720px;margin:0 auto;">
 
                 <button onClick="{{ goBlog }}"
-                  style="font-family:'Source Serif 4',serif;font-size:15px;color:#888888;background:none;border:none;cursor:pointer;padding:0;letter-spacing:.03em;">
+                  style="font-family:Georgia,serif;font-size:15px;color:#888888;background:none;border:none;cursor:pointer;padding:0;letter-spacing:.03em;">
                   <svg width="14" height="8" viewBox="0 0 14 8" fill="none" style="display:inline-block;vertical-align:middle;margin-right:2px;" xmlns="http://www.w3.org/2000/svg"><path d="M13 4H1M4 1L1 4L4 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to writings</button>
 
                 <div
-                  style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:{{ accent }};margin:40px 0 16px;">
+                  style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:{{ accent }};margin:40px 0 16px;">
                   {{ currentPost.cat }} · {{ currentPost.date }} · {{ currentPost.read }} read</div>
 
                 <h1
-                  style="font-family:'Spectral',serif;font-weight:500;font-size:52px;line-height:1.06;color:#111111;margin:0 0 36px;">
+                  style="font-family:Georgia,serif;font-weight:500;font-size:52px;line-height:1.06;color:#111111;margin:0 0 36px;">
                   {{ currentPost.title }}</h1>
 
                 <div style="border-top:1px solid #E5E5E5;margin-bottom:44px;"></div>
 
                 <sc-for list="{{ postBody }}" as="para" hint-placeholder-count="4">
                   <p
-                    style="font-family:'Source Serif 4',serif;font-size:19px;line-height:1.84;color:#555555;margin:0 0 28px;">
+                    style="font-family:Georgia,serif;font-size:19px;line-height:1.84;color:#555555;margin:0 0 28px;">
                     {{ para }}</p>
                 </sc-for>
 
@@ -767,25 +769,25 @@
 
                 <div style="background:#F2F2F2;border:1px solid #E5E5E5;padding:36px;">
                   <div
-                    style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:11px;color:{{ accent }};margin-bottom:12px;">
+                    style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:11px;color:{{ accent }};margin-bottom:12px;">
                     The letter</div>
                   <h3
-                    style="font-family:'Spectral',serif;font-weight:500;font-size:28px;color:#111111;margin:0 0 10px;">
+                    style="font-family:Georgia,serif;font-weight:500;font-size:28px;color:#111111;margin:0 0 10px;">
                     Receive the monthly reflection</h3>
-                  <p style="font-family:'Source Serif 4',serif;font-size:16px;line-height:1.7;color:#555555;margin:0 0 20px;">One unhurried letter each
+                  <p style="font-family:Georgia,serif;font-size:16px;line-height:1.7;color:#555555;margin:0 0 20px;">One unhurried letter each
                     month: a meditation, a passage, and a word of encouragement. No noise.</p>
                   <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
                     <div
-                      style="font-family:'Source Serif 4',serif;font-style:italic;font-size:20px;color:{{ accent }};">
+                      style="font-family:Georgia,serif;font-style:italic;font-size:20px;color:{{ accent }};">
                       Thank you. Grace and peace. Look for the first letter soon.</div>
                   </sc-if>
                   <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
                     <form onSubmit="{{ subscribe }}" style="display:flex;gap:12px;flex-wrap:wrap;">
                       <input type="email" required placeholder="your@email.com"
-                        style="flex:1;min-width:220px;font-family:'Source Serif 4',serif;font-size:16px;padding:12px 16px;background:#FFFFFF;border:1px solid #DDDDDD;border-radius:2px;color:#111111;"
+                        style="flex:1;min-width:220px;font-family:Georgia,serif;font-size:16px;padding:12px 16px;background:#FFFFFF;border:1px solid #DDDDDD;border-radius:2px;color:#111111;"
                         style-focus="outline:none;border-color:#111111;" />
                       <button type="submit"
-                        style="font-family:'Source Serif 4',serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:12px 24px;border-radius:2px;"
+                        style="font-family:Georgia,serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:12px 24px;border-radius:2px;"
                         style-hover="filter:brightness(1.08);">Subscribe</button>
                     </form>
                   </sc-if>
@@ -805,10 +807,10 @@
                 <div
                   style="width:84px;height:84px;border-radius:50%;margin:0 auto 24px;background:linear-gradient(140deg,#D8D8D8,#B0B0B0);border:1px solid rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;">
                   <span
-                    style="font-family:'Source Serif 4',serif;font-style:italic;font-size:13px;color:rgba(100,100,100,.5);">JMR</span>
+                    style="font-family:Georgia,serif;font-style:italic;font-size:13px;color:rgba(100,100,100,.5);">JMR</span>
                 </div>
                 <h1
-                  style="font-family:'Spectral',serif;font-weight:600;font-size:44px;color:#111111;margin:0 0 8px;">
+                  style="font-family:Georgia,serif;font-weight:600;font-size:44px;color:#111111;margin:0 0 8px;">
                   Justin Matthew Reid</h1>
                 <p style="font-size:17px;line-height:1.6;color:#555555;margin:0;">Everything in one place sermons,
                   books, the newsletter, and ways to walk with the ministry.</p>
@@ -822,15 +824,15 @@
                     class="link-item" style="display:flex;align-items:center;gap:20px;padding:20px 24px;background:#F7F7F7;border:1px solid #E5E5E5;border-radius:3px;text-decoration:none;"
                     style-hover="border-color:{{ accent }};transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(60,40,20,.5);">
                     <span
-                      style="flex:none;width:46px;height:46px;border-radius:50%;background:{{ lk.bg }};display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-weight:600;font-size:18px;color:{{ accent }};">{{
+                      style="flex:none;width:46px;height:46px;border-radius:50%;background:{{ lk.bg }};display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-weight:600;font-size:18px;color:{{ accent }};">{{
                       lk.glyph }}</span>
                     <span style="flex:1;">
                       <span
-                        style="display:block;font-family:'Source Serif 4',serif;font-size:22px;color:#111111;line-height:1.15;">{{
+                        style="display:block;font-family:Georgia,serif;font-size:22px;color:#111111;line-height:1.15;">{{
                         lk.title }}</span>
                       <span style="display:block;font-size:14px;color:#888888;margin-top:3px;">{{ lk.desc }}</span>
                     </span>
-                    <span style="flex:none;font-family:'Source Serif 4',serif;font-size:18px;color:#AAAAAA;">↗</span>
+                    <span style="flex:none;font-family:Georgia,serif;font-size:18px;color:#AAAAAA;">↗</span>
                   </a>
                 </sc-for>
               </div>
@@ -846,10 +848,10 @@
             <section style="padding:78px 32px 36px;text-align:center;">
               <div style="max-width:720px;margin:0 auto;">
                 <div
-                  style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
+                  style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
                   Published works</div>
                 <h1
-                  style="font-family:'Spectral',serif;font-weight:500;font-size:60px;line-height:1.04;color:#111111;margin:0 0 18px;">
+                  style="font-family:Georgia,serif;font-weight:500;font-size:60px;line-height:1.04;color:#111111;margin:0 0 18px;">
                   The Books</h1>
                 <p style="font-size:18px;line-height:1.7;color:#555555;margin:0;">Written for the wayfaring and the seeking. Each available wherever good books are sold.</p>
               </div>
@@ -866,23 +868,23 @@
                 </div>
                 <div style="padding:56px;">
                   <div
-                    style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:16px;">
+                    style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:16px;">
                     Featured release · 2026</div>
                   <h2
-                    style="font-family:'Spectral',serif;font-weight:600;font-size:46px;color:#111111;margin:0 0 8px;line-height:1.04;">
+                    style="font-family:Georgia,serif;font-weight:600;font-size:46px;color:#111111;margin:0 0 8px;line-height:1.04;">
                     Judging Righteous Judgment</h2>
                   <p
-                    style="font-family:'Source Serif 4',serif;font-style:italic;font-size:22px;color:#888888;margin:0 0 26px;">
+                    style="font-family:Georgia,serif;font-style:italic;font-size:22px;color:#888888;margin:0 0 26px;">
                     A Biblical investigation into righteous judgment</p>
                   <p style="font-size:17px;line-height:1.76;color:#555555;margin:0 0 22px;max-width:36em;">How many times have we heard that only God can judge? If you have wondered what place judgment has in the life of a Christian, this book is for you. Justin Matthew Reid was compelled to advance the discussion about Biblical judgment after observing how judgment has had such a negative stigma attached to it in both the world and the church.</p>
                   <div style="border-left:3px solid {{ accent }};padding:6px 0 6px 20px;margin:0 0 30px;">
                     <p
-                      style="font-family:'Source Serif 4',serif;font-style:italic;font-size:19px;color:#111111;margin:0;line-height:1.5;">
+                      style="font-family:Georgia,serif;font-style:italic;font-size:19px;color:#111111;margin:0;line-height:1.5;">
                       "A timely and necessary investigation designed to illuminate minds which have been formerly poisoned to believe that judgment is always negative and condemning."</p>
                   </div>
                   <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <a href="https://www.amazon.com" target="_blank" rel="noopener"
-                      style="font-family:'Source Serif 4',serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:13px 26px;border-radius:2px;text-decoration:none;"
+                      style="font-family:Georgia,serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:13px 26px;border-radius:2px;text-decoration:none;"
                       style-hover="filter:brightness(1.08);">Buy on Amazon ↗</a>
                   </div>
                 </div>
@@ -892,7 +894,7 @@
             <section style="background:#F2F2F2;padding:84px 32px;">
               <div style="max-width:1180px;margin:0 auto;">
                 <h2
-                  style="font-family:'Spectral',serif;font-weight:500;font-size:38px;color:#111111;margin:0 0 44px;text-align:center;">
+                  style="font-family:Georgia,serif;font-weight:500;font-size:38px;color:#111111;margin:0 0 44px;text-align:center;">
                   More from the author</h2>
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;">
                   <sc-for list="{{ books }}" as="b" hint-placeholder-count="3">
@@ -900,23 +902,23 @@
                       <div
                         style="width:64%;aspect-ratio:2/3;background:{{ b.bg }};box-shadow:0 22px 40px -22px rgba(0,0,0,.4);display:flex;flex-direction:column;justify-content:space-between;padding:18px;margin-bottom:24px;">
                         <span
-                          style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:rgba(255,255,255,.65);">Justin
+                          style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:rgba(255,255,255,.65);">Justin
                           Matthew Reid</span>
                         <span
-                          style="font-family:'Source Serif 4',serif;font-style:italic;font-size:17px;color:rgba(255,255,255,.92);line-height:1.2;">{{
+                          style="font-family:Georgia,serif;font-style:italic;font-size:17px;color:rgba(255,255,255,.92);line-height:1.2;">{{
                           b.title }}</span>
                       </div>
                       <h3
-                        style="font-family:'Spectral',serif;font-weight:600;font-size:25px;color:#111111;margin:0 0 4px;">
+                        style="font-family:Georgia,serif;font-weight:600;font-size:25px;color:#111111;margin:0 0 4px;">
                         {{ b.title }}</h3>
                       <p
-                        style="font-family:'Source Serif 4',serif;font-style:italic;font-size:17px;color:#888888;margin:0 0 8px;">
+                        style="font-family:Georgia,serif;font-style:italic;font-size:17px;color:#888888;margin:0 0 8px;">
                         {{ b.sub }}</p>
                       <span
-                        style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#888888;margin-bottom:16px;">{{
+                        style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#888888;margin-bottom:16px;">{{
                         b.year }}</span>
                       <a href="https://www.amazon.com" target="_blank" rel="noopener"
-                        style="font-family:'Source Serif 4',serif;font-size:15px;color:{{ accent }};text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;">Buy
+                        style="font-family:Georgia,serif;font-size:15px;color:{{ accent }};text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;">Buy
                         the book ↗</a>
                     </div>
                   </sc-for>
@@ -935,12 +937,12 @@
               <div style="max-width:640px;margin:0 auto;">
                 <div style="text-align:center;margin-bottom:52px;">
                   <div
-                    style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
+                    style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.28em;font-size:12.5px;color:{{ accent }};margin-bottom:18px;">
                     Get in touch</div>
                   <h1
-                    style="font-family:'Spectral',serif;font-weight:500;font-size:54px;line-height:1.04;color:#111111;margin:0 0 22px;">
+                    style="font-family:Georgia,serif;font-weight:500;font-size:54px;line-height:1.04;color:#111111;margin:0 0 22px;">
                     Write to us</h1>
-                  <p style="font-family:'Source Serif 4',serif;font-size:18px;line-height:1.76;color:#555555;margin:0;">For prayer,
+                  <p style="font-family:Georgia,serif;font-size:18px;line-height:1.76;color:#555555;margin:0;">For prayer,
                     speaking invitations, partnership, or a word of encouragement. We read every message and reply as the
                     Lord allows.</p>
                 </div>
@@ -948,7 +950,7 @@
                 <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
                   <div style="text-align:center;padding:60px 12px;">
                     <div
-                      style="font-family:'Spectral',serif;font-size:30px;color:{{ accent }};margin-bottom:12px;">
+                      style="font-family:Georgia,serif;font-size:30px;color:{{ accent }};margin-bottom:12px;">
                       Thank you.</div>
                     <p style="font-size:17px;line-height:1.7;color:#555555;margin:0;">Your message has been received.
                       Grace and peace to you. We'll be in touch soon.</p>
@@ -958,35 +960,35 @@
                   <form onSubmit="{{ submitContact }}" style="display:flex;flex-direction:column;gap:22px;">
                     <div>
                       <label
-                        style="display:block;font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#888888;margin-bottom:8px;">Full
+                        style="display:block;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#888888;margin-bottom:8px;">Full
                         name</label>
                       <input required type="text"
-                        style="width:100%;font-family:'Source Serif 4',serif;font-size:16px;padding:13px 16px;background:#FAFAFA;border:1px solid #DDDDDD;border-radius:2px;color:#111111;"
+                        style="width:100%;font-family:Georgia,serif;font-size:16px;padding:13px 16px;background:#FAFAFA;border:1px solid #DDDDDD;border-radius:2px;color:#111111;"
                         style-focus="outline:none;border-color:{{ accent }};" />
                     </div>
                     <div>
                       <label
-                        style="display:block;font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#888888;margin-bottom:8px;">Email</label>
+                        style="display:block;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#888888;margin-bottom:8px;">Email</label>
                       <input required type="email"
-                        style="width:100%;font-family:'Source Serif 4',serif;font-size:16px;padding:13px 16px;background:#FAFAFA;border:1px solid #DDDDDD;border-radius:2px;color:#111111;"
+                        style="width:100%;font-family:Georgia,serif;font-size:16px;padding:13px 16px;background:#FAFAFA;border:1px solid #DDDDDD;border-radius:2px;color:#111111;"
                         style-focus="outline:none;border-color:{{ accent }};" />
                     </div>
                     <div>
                       <label
-                        style="display:block;font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#888888;margin-bottom:8px;">Subject</label>
+                        style="display:block;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#888888;margin-bottom:8px;">Subject</label>
                       <input type="text"
-                        style="width:100%;font-family:'Source Serif 4',serif;font-size:16px;padding:13px 16px;background:#FAFAFA;border:1px solid #DDDDDD;border-radius:2px;color:#111111;"
+                        style="width:100%;font-family:Georgia,serif;font-size:16px;padding:13px 16px;background:#FAFAFA;border:1px solid #DDDDDD;border-radius:2px;color:#111111;"
                         style-focus="outline:none;border-color:{{ accent }};" />
                     </div>
                     <div>
                       <label
-                        style="display:block;font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#888888;margin-bottom:8px;">Message</label>
+                        style="display:block;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:#888888;margin-bottom:8px;">Message</label>
                       <textarea required rows="6"
-                        style="width:100%;font-family:'Source Serif 4',serif;font-size:16px;padding:13px 16px;background:#FAFAFA;border:1px solid #DDDDDD;border-radius:2px;color:#111111;resize:vertical;"
+                        style="width:100%;font-family:Georgia,serif;font-size:16px;padding:13px 16px;background:#FAFAFA;border:1px solid #DDDDDD;border-radius:2px;color:#111111;resize:vertical;"
                         style-focus="outline:none;border-color:{{ accent }};"></textarea>
                     </div>
                     <button type="submit"
-                      style="font-family:'Source Serif 4',serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:15px 30px;border-radius:2px;align-self:flex-start;"
+                      style="font-family:Georgia,serif;font-size:16px;letter-spacing:.03em;color:#FFFFFF;background:{{ accent }};border:none;cursor:pointer;padding:15px 30px;border-radius:2px;align-self:flex-start;"
                       style-hover="filter:brightness(1.08);">Send message <svg width="14" height="8" viewBox="0 0 14 8" fill="none" style="display:inline-block;vertical-align:middle;margin-left:2px;" xmlns="http://www.w3.org/2000/svg"><path d="M1 4H13M10 1L13 4L10 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                   </form>
                 </sc-if>
@@ -1004,50 +1006,50 @@
           <div
             style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid #333333;">
             <div>
-              <div style="font-family:'Spectral',serif;font-weight:600;font-size:26px;color:#FFFFFF;">Justin
+              <div style="font-family:Georgia,serif;font-weight:600;font-size:26px;color:#FFFFFF;">Justin
                 Matthew Reid</div>
               <div
-                style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.26em;font-size:10.5px;color:#999999;margin-top:8px;margin-bottom:18px;">
+                style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.26em;font-size:10.5px;color:#999999;margin-top:8px;margin-bottom:18px;">
                 Minister &amp; Author</div>
               <p style="font-size:15px;line-height:1.7;color:#AAAAAA;margin:0;max-width:24em;">Teaching Scripture and writing for the church.</p>
             </div>
             <div>
               <div
-                style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#888888;margin-bottom:16px;">
+                style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#888888;margin-bottom:16px;">
                 Explore</div>
               <div style="display:flex;flex-direction:column;gap:11px;">
                 <button onClick="{{ goAbout }}"
-                  style="text-align:left;background:none;border:none;color:#BBBBBB;font-family:'Source Serif 4',serif;font-size:16px;cursor:pointer;padding:0;"
+                  style="text-align:left;background:none;border:none;color:#BBBBBB;font-family:Georgia,serif;font-size:16px;cursor:pointer;padding:0;"
                   style-hover="color:#FFFFFF;">About</button>
                 <button onClick="{{ goBlog }}"
-                  style="text-align:left;background:none;border:none;color:#BBBBBB;font-family:'Source Serif 4',serif;font-size:16px;cursor:pointer;padding:0;"
+                  style="text-align:left;background:none;border:none;color:#BBBBBB;font-family:Georgia,serif;font-size:16px;cursor:pointer;padding:0;"
                   style-hover="color:#FFFFFF;">Writings</button>
                 <button onClick="{{ goBooks }}"
-                  style="text-align:left;background:none;border:none;color:#BBBBBB;font-family:'Source Serif 4',serif;font-size:16px;cursor:pointer;padding:0;"
+                  style="text-align:left;background:none;border:none;color:#BBBBBB;font-family:Georgia,serif;font-size:16px;cursor:pointer;padding:0;"
                   style-hover="color:#FFFFFF;">Books</button>
                 <button onClick="{{ goLinks }}"
-                  style="text-align:left;background:none;border:none;color:#BBBBBB;font-family:'Source Serif 4',serif;font-size:16px;cursor:pointer;padding:0;"
+                  style="text-align:left;background:none;border:none;color:#BBBBBB;font-family:Georgia,serif;font-size:16px;cursor:pointer;padding:0;"
                   style-hover="color:#FFFFFF;">Links</button>
               </div>
             </div>
             <div>
               <div
-                style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#888888;margin-bottom:16px;">
+                style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#888888;margin-bottom:16px;">
                 Connect</div>
               <div style="display:flex;flex-direction:column;gap:11px;">
                 <button onClick="{{ goContact }}"
-                  style="text-align:left;background:none;border:none;color:#BBBBBB;font-family:'Source Serif 4',serif;font-size:16px;cursor:pointer;padding:0;"
+                  style="text-align:left;background:none;border:none;color:#BBBBBB;font-family:Georgia,serif;font-size:16px;cursor:pointer;padding:0;"
                   style-hover="color:#FFFFFF;">Contact</button>
               </div>
             </div>
             <div>
               <div
-                style="font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#888888;margin-bottom:16px;">
+                style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#888888;margin-bottom:16px;">
                 The monthly letter</div>
               <p style="font-size:15px;line-height:1.6;color:#AAAAAA;margin:0 0 14px;">One unhurried reflection each
                 month.</p>
               <button onClick="{{ goHome }}"
-                style="font-family:'Source Serif 4',serif;font-size:15px;color:#111111;background:#DDDDDD;border:none;cursor:pointer;padding:10px 20px;border-radius:2px;"
+                style="font-family:Georgia,serif;font-size:15px;color:#111111;background:#DDDDDD;border:none;cursor:pointer;padding:10px 20px;border-radius:2px;"
                 style-hover="filter:brightness(1.05);">Subscribe</button>
             </div>
           </div>
@@ -1064,16 +1066,16 @@
         <div onClick="{{ closeLightbox }}"
           style="position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;padding:40px;animation:fadeUp .3s ease both;">
           <button onClick="{{ closeLightbox }}"
-            style="position:absolute;top:28px;right:34px;background:none;border:none;color:#EEEEEE;font-family:'Spectral',serif;font-size:30px;cursor:pointer;line-height:1;">×</button>
+            style="position:absolute;top:28px;right:34px;background:none;border:none;color:#EEEEEE;font-family:Georgia,serif;font-size:30px;cursor:pointer;line-height:1;">×</button>
           <div style="text-align:center;">
             <div
               style="width:min(880px,86vw);aspect-ratio:3/2;background:{{ lightboxBg }};border:1px solid rgba(150,150,150,.3);display:flex;align-items:center;justify-content:center;box-shadow:0 40px 90px -40px rgba(0,0,0,.8);">
               <span
-                style="font-family:'Source Serif 4',serif;font-style:italic;font-size:20px;color:rgba(74,56,36,.55);">{{
+                style="font-family:Georgia,serif;font-style:italic;font-size:20px;color:rgba(74,56,36,.55);">{{
                 lightboxLabel }}</span>
             </div>
             <div
-              style="font-family:'Source Serif 4',serif;font-style:italic;font-size:17px;color:#AAAAAA;margin-top:18px;">
+              style="font-family:Georgia,serif;font-style:italic;font-size:17px;color:#AAAAAA;margin-top:18px;">
               From the ministry field · placeholder image</div>
           </div>
         </div>
@@ -1118,7 +1120,7 @@ class Component extends DCLogic {
 
     const navData=[['home','Home'],['about','About'],['blog','Blog'],['links','Links'],['books','Books'],['contact','Contact']];
     const navItems=navData.map(([k,l])=>({key:k,label:l,onClick:mk(k),
-      style:`font-family:'Source Serif 4',serif;font-size:16px;letter-spacing:.04em;color:${activeNav===k?accent:'#111111'};background:none;border:none;border-bottom:2px solid ${activeNav===k?accent:'transparent'};cursor:pointer;padding:6px 1px;transition:color .2s,border-color .2s;`}));
+      style:`font-family:Georgia,serif;font-size:16px;letter-spacing:.04em;color:${activeNav===k?accent:'#111111'};background:none;border:none;border-bottom:2px solid ${activeNav===k?accent:'transparent'};cursor:pointer;padding:6px 1px;transition:color .2s,border-color .2s;`}));
 
     const tones=['linear-gradient(135deg,#D8D8D8,#C0C0C0)','linear-gradient(135deg,#D0D0D0,#B8B8B8)','linear-gradient(135deg,#DCDCDC,#C8C8C8)','linear-gradient(135deg,#D4D4D4,#B4B4B4)','linear-gradient(135deg,#DADADA,#BBBBBB)','linear-gradient(135deg,#E0E0E0,#C4C4C4)'];
 
@@ -1170,7 +1172,7 @@ class Component extends DCLogic {
 
     const cats=['All','Reflections','Essays','Sermons','Devotionals'];
     const chips=cats.map(c=>({label:c,onClick:()=>this.setState({filter:c}),
-      style:`font-family:'Source Serif 4',serif;font-size:14px;letter-spacing:.04em;cursor:pointer;padding:8px 18px;border-radius:999px;border:1px solid ${this.state.filter===c?accent:'#DDDDDD'};background:${this.state.filter===c?accent:'transparent'};color:${this.state.filter===c?'#FFFFFF':'#555555'};transition:all .2s;`}));
+      style:`font-family:Georgia,serif;font-size:14px;letter-spacing:.04em;cursor:pointer;padding:8px 18px;border-radius:999px;border:1px solid ${this.state.filter===c?accent:'#DDDDDD'};background:${this.state.filter===c?accent:'transparent'};color:${this.state.filter===c?'#FFFFFF':'#555555'};transition:all .2s;`}));
 
     const restBooks=[
       {title:'Bread for the Journey', sub:'Daily devotions for pilgrims', year:'2023', bg:'linear-gradient(160deg,#444444,#222222)'},
