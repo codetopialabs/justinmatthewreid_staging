@@ -197,6 +197,10 @@
             grid-template-columns: 80px 1fr !important;
           }
 
+          .milestone-year {
+            font-size: 20px !important;
+          }
+
           /* Inner padded panels (Chrome normalises padding:56px 56px -> padding:56px) */
           div[style*="padding: 56px"] {
             padding: 36px 28px !important;
@@ -638,7 +642,7 @@
                   <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="5">
                     <div
                       class="milestone-row" style="display:grid;grid-template-columns:120px 1fr;gap:28px;padding:22px 8px;border-bottom:1px solid #E0E0E0;align-items:baseline;">
-                      <div
+                      <div class="milestone-year"
                         style="font-family:Georgia,serif;font-weight:600;font-size:28px;color:{{ accent }};">
                         {{ m.year }}</div>
                       <div>
@@ -1187,7 +1191,7 @@ class Component extends DCLogic {
 
     const milestones=[
       {year:'2021', title:'Called to Ghana', body:'Leaves the glamorous life of America to become a full-time Christian missionary to the beautiful people of Ghana, West Africa.'},
-      {year:'Ongoing', title:'Hands and hearts for Ghana', body:'Through the distribution of foodstuffs and other donations, JMR continues to demonstrate God\u2019s great love to the needy people of Africa.'},
+      {year:'Today', title:'Hands and hearts for Ghana', body:'Through the distribution of foodstuffs and other donations, JMR continues to demonstrate God\u2019s great love to the needy people of Africa.'},
     ];
 
     const galLabels=['Worship','Baptism','The field','Community','Teaching','Outreach'];
